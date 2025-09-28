@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="../js/shared.js"></script>
+        <script src="../js/classes.js"></script>
+        <script src="./js/creadorCriaturas.js"></script>
+        <title>Criaturas</title>
+    </head>
+
+    <body onload="init()">
+        <div class="container mt-3 mb-3">
+            <h5>Crear una nueva criatura</h5>
+            <div class="modal fade" id="criaturas-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+            <form id="formulario-criatura"></form>
+                <div class="card mb-3">
+                    <div class="card-header">Identificación</div>
+                    <div class="card-body form-group row">
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="nombre" class="col-md-1 col-form-label">Nombre</label>
+                                <div class="col-md-11">
+                                    <input type="text" id="nombre" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="row">
+                                <label for="tipoCriatura" class="col-md-3 col-form-label">Tipo</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="tipoCriatura" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="row">
+                                <label for="tamanno" class="col-md-3 col-form-label">Tamaño</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="tamanno" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row">
+                                <label for="alineamiento" class="col-md-3 col-form-label">Alineamiento</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="alineamiento" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header">Atributos</div>
+                    <div class="card-body form-group row">
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="claseArmadura" class="col-md-2 col-form-label">Clase de Armadura (AC)</label>
+                                <div class="col-md-5">
+                                    <input type="text" id="claseArmadura" class="form-control" />
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" id="tipoArmadura" placeholder="tipo de armadura" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row">
+                                <label for="puntosGolpe" class="col-md-4 col-form-label">Puntos de golpe (PG)</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="puntosGolpe" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row">
+                                <label for="dadosGolpe" class="col-md-3 col-form-label">Dados de golpe</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="dadosGolpe" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="velocidad" class="col-md-2 col-form-label">Velocidad (en ft)</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="velocidad" placeholder="normal" class="form-control" />
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" id="velocidadNado" placeholder="nado"class="form-control" />
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" id="velocidadVuelo" placeholder="vuelo"class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row">
+                                <label for="competencia" class="col-md-4 col-form-label">Competencia</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="competencia" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row">
+                                <label for="desafio" class="offset-md-1 col-md-2 col-form-label">Desafío</label>
+                                <div class="col-md-9">
+                                    <select id="desafio" class="form-select">
+                                        <option value="0"> 0 (10px)</option>
+                                        <option value="1/8">1/8 (25px)</option>
+                                        <option value="1/4">1/4 (50px)</option>
+                                        <option value="1/2">1/2 (100px)</option>
+                                        <option value="1">1 (200px)</option>
+                                        <option value="2">2 (450px)</option>
+                                        <option value="3">3 (700px)</option>
+                                        <option value="4">4 (1100px)</option>
+                                        <option value="5">5 (1800px)</option>
+                                        <option value="6">6 (2300px)</option>
+                                        <option value="7">7 (2900px)</option>
+                                        <option value="8">8 (3900px)</option>
+                                        <option value="9">9 (5000px)</option>
+                                        <option value="10">10 (5900px)</option>
+                                        <option value="11">11 (7200px)</option>
+                                        <option value="12">12 (8400px)</option>
+                                        <option value="13">13 (10.000px)</option>
+                                        <option value="14">14 (11.500px)</option>
+                                        <option value="15">15 (13.000px)</option>
+                                        <option value="16">16 (15.000px)</option>
+                                        <option value="17">17 (18.000px)</option>
+                                        <option value="18">18 (20.000px)</option>
+                                        <option value="19">19 (22.000px)</option>
+                                        <option value="20">20 (25.000px)</option>
+                                        <option value="21">21 (33.000px)</option>
+                                        <option value="22">22 (41.000px)</option>
+                                        <option value="23">23 (50.000px)</option>
+                                        <option value="24">24 (62.000px)</option>
+                                        <option value="25">25 (75.000px)</option>
+                                        <option value="26">26 (90.000px)</option>
+                                        <option value="27">27 (105.000px)</option>
+                                        <option value="28">28 (120.000px)</option>
+                                        <option value="29">29 (135.000px)</option>
+                                        <option value="30">30 (155.000px)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <label for="fuerza" class="col-md-4 col-form-label">FUE</label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="fuerza" class="form-control" maxlength="2" />
+                                        </div>
+                                        <div id="modFuerza" class="col-md-4 col-form-label"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <label for="destreza" class="col-md-4 col-form-label">DES</label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="destreza" class="form-control" maxlength="2" />
+                                        </div>
+                                        <div id="modDestreza" class="col-md-4 col-form-label"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <label for="constitucion" class="col-md-4 col-form-label">CON</label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="constitucion" class="form-control" maxlength="2" />
+                                        </div>
+                                        <div id="modConstitucion" class="col-md-4 col-form-label"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <label for="inteligencia" class="col-md-4 col-form-label">INT</label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="inteligencia" class="form-control" maxlength="2" />
+                                        </div>
+                                        <div id="modInteligencia" class="col-md-4 col-form-label"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <label for="sabiduria" class="col-md-4 col-form-label">SAB</label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="sabiduria" class="form-control" maxlength="2" />
+                                        </div>
+                                        <div id="modSabiduria" class="col-md-4 col-form-label"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <label for="carisma" class="col-md-4 col-form-label">CAR</label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="carisma" class="form-control" maxlength="2" />
+                                        </div>
+                                        <div id="modCarisma" class="col-md-4 col-form-label"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header">Caracteristicas</div>
+                    <div class="card-body form-group row">
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="tiradasSalvacion" class="col-md-2 col-form-label">
+                                    Tiradas de salvación <i class="fa fa-circle-question" data-bs-toggle="tooltip" title="Al pulsar el botón se abrirá un modal para que completar la información"></i>
+                                </label>
+                                <div class="col-md-1">
+                                    <button id="add-tirada-salvacion" type="button" class="btn btn-primary w-100"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="tiradasSalvacion" class="row"></div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="habilidades" class="col-md-2 col-form-label">
+                                    Habilidades <i class="fa fa-circle-question" data-bs-toggle="tooltip" title="Al pulsar el botón se abrirá un modal para que completar la información"></i>
+                                </label>
+                                <div class="col-md-1">
+                                    <button id="add-habilidad" type="button" class="btn btn-primary w-100"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="habilidades" class="row"></div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="sentidos" class="col-md-2 col-form-label">
+                                    Sentidos <i class="fa fa-circle-question" data-bs-toggle="tooltip" title="No es necesario añadir la percepción pasiva. Esa se calculará automáticamente"></i>
+                                </label>
+                                <div class="col-md-1">
+                                    <button id="add-sentido" type="button" class="btn btn-primary w-100"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="hidden" id="esCompetenteEnPercepcion" value="false" />
+                                    <div id="sentidos" class="row">
+                                        <div class="col-md-3 col-form-label">
+                                            <input type="hidden" name="sentido" id="sentidos__0_Key" value="PercepcionPasiva" />
+                                            <input type="hidden" name="sentido" id="sentidos__0_Value" value="0" />
+                                            <span id="sentidos__0_Text">Percepción pasiva (10)</span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="idiomas" class="col-md-2 col-form-label">Idiomas</label>
+                                <div class="col-md-1">
+                                    <button id="add-idioma" type="button" class="btn btn-primary w-100"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="idiomas" class="row"></div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="imunidadesEstado" class="col-md-2 col-form-label">Inmunidades (estados)</label>
+                                <div class="col-md-1">
+                                    <button id="add-inmunidad-estado" type="button" class="btn btn-primary w-100"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="imunidadesEstado" class="row"></div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="imunidadesDanno" class="col-md-2 col-form-label">Inmunidades (daño)</label>
+                                <div class="col-md-1">
+                                    <button id="add-inmunidad-danno" type="button" class="btn btn-primary w-100"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="imunidadesDanno" class="row"></div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <label for="resistenciasDanno" class="col-md-2 col-form-label">Resistencias (daño)</label>
+                                <div class="col-md-1">
+                                    <button id="add-resistencia-danno" type="button" class="btn btn-primary w-100"><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="resistenciasDanno" class="row"></div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header d-flex">
+                        <label for="rasgos" class="me-3">Rasgos</label>
+                        <button id="add-rasgo" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i></button>                      
+                    </div>
+                    <div id="rasgos" class="card-body form-group row"></div>
+                    <div class="card-header d-flex">
+                        Lanzamiento de conjuros
+                        <div class="form-check ms-3">
+                            <label for="esConjurador" class="form-check-label">Es Conjurador</label>
+                            <input id="esConjurador" class="form-check-input" type="checkbox" />
+                        </div>                        
+                    </div>
+                    <div class="card-body form-group row">
+                        <div class="col-md-12 mb-3">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <label for="conjurosCaracteristica" class="col-md-6 col-form-label">Característica de lanzamiento</label>
+                                        <div class="col-md-6">
+                                            <select id="conjurosCaracteristica" class="form-select" disabled>
+                                                <option value="inteligencia">Inteligencia</option>
+                                                <option value="sabiduria">Sabiduría</option>
+                                                <option value="carisma">Carisma</option>
+                                                <option value="constitucion">Constitucion</option>  
+                                                <option value="fuerza">Fuerza</option>
+                                                <option value="destreza">Destreza</option>                                                                              
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <span class="col-md-2 col-form-label">CD:</span>
+                                        <span id="cd-Conjuros" class="col-md-3 col-form-label"></span>                                        
+                                        <span class="col-md-4 col-form-label">Impacto:</span>
+                                        <span id="modConjuros" class="col-md-2 col-form-label"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button id="add-nivel-conjuro" type="button" class="btn btn-primary w-100" disabled><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header d-flex">
+                        <label for="acciones" class="me-3">Acciones</label>
+                        <button id="add-accion" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i></button>                      
+                    </div>
+                    <div id="acciones" class="card-body form-group row"></div>
+                    <div class="card-header d-flex">
+                        <label for="reacciones" class="me-3">Reacciones</label>
+                        <button id="add-reaccion" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i></button>                      
+                    </div>
+                    <div id="reacciones" class="card-body form-group row"></div>                
+                </div>
+                <div class="float-end mb-3">
+                    <button id="export-json-btn" type="button" class="btn btn-primary">Generar JSON</button>
+                    <button id="export-md-btn" type="button" class="btn btn-primary">Generar MD</button>
+                    <button id="export-both-btn" type="button" class="btn btn-primary">Generar JSON y MD</button>
+                </div>
+            </form>
+        </div>
+    </body>
+
+</html>
