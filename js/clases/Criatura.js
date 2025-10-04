@@ -279,7 +279,7 @@ class Criatura{
         if(this.habilidades.length > 0){
             const habArr = [];
             for(const hab of this.habilidades){
-                habArr.push(`${hab} (${this.pintarSigno(this.calcularModificador(this[TIRADAS_CARACTERISTICAS[hab]]) + this.competencia)})`);
+                habArr.push(`${hab} (${this.pintarSigno(this.calcularModificador(this[HABILIDADES_CARACTERISTICAS[hab]]) + this.competencia)})`);
             }
             markdown += 
             `            <b>Habilidades:</b> ${habArr.join(", ")}<br/>` + "\n";
