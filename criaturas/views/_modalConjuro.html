@@ -1,0 +1,142 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Añadir conjuro</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="formulario_conjuro">
+                <div class="row form-group">
+                    <div class="col-md-12 mb-3">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 mb-3">
+                                <div class="row">
+                                    <label for="nombre" class="col-md-3 col-form-label">Nombre</label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="nombre" name="nombre" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <span class="col-form-label me-2">Componentes</span>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="verbal" name="verbal">
+                                    <label class="form-check-label" for="verbal">Verbal</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="somatico" name="somatico">
+                                    <label class="form-check-label" for="somatico">Somático</label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="material" name="material">
+                                    <label class="form-check-label" for="material">Material</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <div class="row">
+                                    <label for="alcance" class="col-md-2 col-form-label">Alcance</label>
+                                    <div class="col-md-3">
+                                        <input type="text" id="alcance" name="alcance" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select id="tipoAreaEfecto" nombre="tipoAreaEfecto" class="form-select">
+                                            <option value="objetivo">Objetivo</option>
+                                            <option value="cilindro">Cilindro</option>
+                                            <option value="cono">Cono</option>
+                                            <option value="cubo">Cubo</option>
+                                            <option value="esfera">Esfera</option>
+                                            <option value="linea">Línea</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" id="areaEfecto" name="areaEfecto" class="form-control"
+                                            placeholder="área" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 mb-3">
+                                <div class="row align-items-center">
+                                    <label for="tipoTiradaSalvacion" class="col-md-3 col-form-label">Tirada de
+                                        Salvación</label>
+                                    <div class="col-md-4">
+                                        <select id="tipoTiradaSalvacion" name="tipoTiradaSalvacion" class="form-select">
+                                            <option value="ninguna">Ninguna</option>
+                                            <option value="fuerza">Fuerza</option>
+                                            <option value="destreza">Destreza</option>
+                                            <option value="constitucion">Constitucion</option>
+                                            <option value="inteligencia">Inteligencia</option>
+                                            <option value="sabiduria">Sabiduría</option>
+                                            <option value="carisma">Carisma</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-check-inline">
+                                            <input class="form-check-input" type="radio" id="tipoSalvacion_niega"
+                                                name="tipoSalvacion" value="niega" disabled />
+                                            <label class="form-check-label" for="tipoSalvacion_niega">Niega</label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <input class="form-check-input" type="radio" id="tipoSalvacion_reduce"
+                                                name="tipoSalvacion" value="reduce" disabled />
+                                            <label class="form-check-label" for="tipoSalvacion_reduce">Reduce</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <label for="tiempoLanzamiento" class="col-md-5 col-form-label">Tiempo de
+                                        lanzamiento</label>
+                                    <div class="col-md-7">
+                                        <select id="tiempoLanzamiento" name="tiempoLanzamiento" class="form-select">
+                                            <option value="acción">Acción</option>
+                                            <option value="acción adicional">Acción adicional</option>
+                                            <option value="reacción">Reación</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="row align-items-center">
+                                    <label for="duracion" class="col-md-2 col-form-label">Duración</label>
+                                    <div class="col-md-5">
+                                        <input type="text" id="duracion" name="duracion" class="form-control" />
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="requiereConcentracion"
+                                                name="requiereConcentracion">
+                                            <label class="form-check-label" for="requiereConcentracion">Requiere
+                                                concentración</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="row">
+                            <label for="enlace" class="col-md-3 col-form-label">Enlace a descripción detallada</label>
+                            <div class="col-md-9">
+                                <input type="text" id="enlace" name="enlace" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="row">
+                            <label for="descripcion" class="col-md-12 col-form-label">Breve descripción del efecto del
+                                hechizo</label>
+                            <div class="col-md-12">
+                                <textarea id="descripcion" name="descripcion" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button id="modal-ok-btn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 // CONSTANTES //
+const BRANCH = "v1.0_basico" /*"main"*/;
 const EXP_DESAFIO = {
     "0": "10px",
     "1/8": "25px",
@@ -53,4 +54,25 @@ function filterNumbers(element){
         }
     }
     element.value = finalValue;
+}
+
+function openModal(viewDir, viewName, modalId, initFunc){
+    fetch(`https://raw.githubusercontent.com/CrazyJaeger/Encontrator/refs/heads/${BRANCH}/${viewDir}/views/${viewName}.html`)
+        .then((response) => response.text())
+        .then((response) => {
+            const modalElement = document.getElementById(modalId);
+            modalElement.innerHTML = response;
+            
+            const bsModal = new bootstrap.Modal(modalElement);
+            bsModal.show();
+        })
+        .then(() => initFunc());
+}
+
+function showElement(element){
+    element.style = "";
+}
+
+function hideElement(element){
+    element.style = "display:none;";
 }

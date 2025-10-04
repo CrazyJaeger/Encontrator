@@ -1,0 +1,132 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 id="modal-title" class="modal-title fs-5" id="staticBackdropLabel">Añadir acción</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row form-group">
+                <div class="col-md-12 mb-3">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tipoAccion" id="tipoAccion_ataque">
+                                <label class="form-check-label" for="tipoAccion_ataque">Acción de ataque</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tipoAccion" id="tipoAccion_simple">
+                                <label class="form-check-label" for="tipoAccion_simple">Acción simple</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="seccion_accionAtaque" class="col-md-12" style="display: none;">
+                    <form id="formulario_accionAtaque">
+                        <input type="hidden" id="accionAtaque_esAtaque" name="esAtaque" value="true" />
+                        <div class="row form-group">
+                            <div class="col-md-2 mb-3">
+                                <input type="text" id="accionAtaque_nombre" name="nombre" class="form-control fw-bold"
+                                    placeholder="Nombre de la accion" />
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="row">
+                                    <label for="accionAtaque_tipoAtaque" class="col-md-5 col-form-label">Ataque con
+                                        arma</label>
+                                    <div class="col-md-7">
+                                        <select id="accionAtaque_tipoAtaque" name="tipoAtaque" class="form-select">
+                                            <option value="cuerpo a cuerpo">cuerpo a cuerpo</option>
+                                            <option value="a distancia">a distancia</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="text" id="accionAtaque_modificadorAtaque" name="modificadorAtaque"
+                                            class="form-control" />
+                                    </div>
+                                    <label for="accionAtaque_modificadorAtaque" class="col-md-8 col-form-label">a
+                                        impactar</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="row">
+                                    <label for="accionAtaque_alcance" class="col-md-5 col-form-label">alcance de</label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="accionAtaque_alcance" name="alcance"
+                                            class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <div class="row">
+                                    <label for="accionAtaque_objetivos"
+                                        class="col-md-6 col-form-label">objetivos</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="accionAtaque_objetivos" name="objetivos"
+                                            class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 mb-3">
+                                <div class="row">
+                                    <label for="accionAtaque_tipoDanno" class="col-md-2 col-form-label">Daño por
+                                        golpe</label>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <input type="text" id="accionAtaque_numeroDados" name="numeroDados"
+                                                    class="form-control" />
+                                            </div>
+                                            <label for="accionAtaque_tipoDado" class="col-md-1 col-form-label">d</label>
+                                            <div class="col-md-3">
+                                                <input type="text" id="accionAtaque_tipoDado" name="tipoDado"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" id="accionAtaque_modificadorDanno"
+                                                    name="modificadorDanno" class="form-control" />
+                                            </div>
+                                            <span id="accionAtaque_impacto" class="col-md-2 col-form-label">(0)</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" id="accionAtaque_tipoDanno" name="tipoDanno"
+                                            class="form-control" />
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <textarea id="accionAtaque_adicional" name="adicional" class="form-control"
+                                    placeholder="Efectos adicionales si tiene"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="seccion_accionSimple" class="col-md-12" style="display: none;">
+                    <form id="formulario_accionSimple">
+                        <input type="hidden" id="accionSimple_esAtaque" name="esAtaque" value="false" />
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <input type="text" id="accionSimle_nombre" name="nombre" class="form-control fw-bold"
+                                    placeholder="Nombre de la accion" />
+                            </div>
+                            <div class="col-md-10">
+                                <textarea id="accionSimple_descripcion" name="descripcion" class="form-control"
+                                    placeholder="Descripción del rasgo"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button id="modal-ok-btn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+        </div>
+    </div>
+</div>
