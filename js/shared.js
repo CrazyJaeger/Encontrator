@@ -1,5 +1,5 @@
 // CONSTANTES //
-const BRANCH = "v1.0_basico" /*"main"*/;
+const BRANCH = "main";
 const EXP_DESAFIO = {
     "0": "10px",
     "1/8": "25px",
@@ -37,8 +37,30 @@ const EXP_DESAFIO = {
     "30": "155.000px"
 };
 
+const HABILIDADES_CARACTERISTICAS = {
+    "atletismo" : "fuerza", 
+    "acrobacias": "destreza", 
+    "con. arcano" : "inteligencia", 
+    "engaño" : "carisma", 
+    "historia": "inteligencia",
+    "interpretación" : "carisma", 
+    "intimidación" : "carisma",
+    "investigación" : "inteligencia",
+    "juego de manos": "destreza", 
+    "medicina": "sabiduria",
+    "naturaleza": "inteligencia",
+    "percepción": "sabiduria",
+    "perspicacia": "sabiduria",
+    "persuasión": "carisma",
+    "religión": "inteligencia",
+    "sigilo": "destreza",
+    "supervicencia": "sabiduria",
+    "trat. con animales": "sabiduria"
+};
+
 const TRUE = "true";
 const FALSE = "false";
+const CHECKED = "on";
 
 // FUNCIONES //
 /**
@@ -75,4 +97,15 @@ function showElement(element){
 
 function hideElement(element){
     element.style = "display:none;";
+}
+
+function descargar(nombre, contenido){
+    const element = document.createElement('a');
+    element.style.display = "none";
+    element.href = "data:text/plain;charset=utf-8," + encodeURIComponent(contenido);
+    element.download = nombre;
+
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
 }

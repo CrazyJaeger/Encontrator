@@ -11,7 +11,7 @@ class Accion {
             this.tipoDado = objeto.tipoDado;
             this.modificadorDanno = objeto.modificadorDanno;
             this.tipoDanno = objeto.tipoDanno;
-            this.adicional = objeto.adicional;
+            this.adicional = objeto.adicional != undefined ? objeto.adicional : "";
         } else {
             this.descripcion = objeto.descripcion;
         }
@@ -76,7 +76,7 @@ class Accion {
 
             const modificadorAtaqueTextoElement = document.createElement("span");
             modificadorAtaqueTextoElement.classList.add("me-1");
-            modificadorAtaqueTextoElement.innerHTML = `+${this.modificadorAtaque} a impactar,`; 
+            modificadorAtaqueTextoElement.innerHTML = `${this.modificadorAtaque > 0 ? "+" : ""}${this.modificadorAtaque} a impactar,`; 
             textElement.appendChild(modificadorAtaqueTextoElement);
 
             const alcanceInputElement = document.createElement("input");
@@ -180,5 +180,19 @@ class Accion {
      */
     getImpacto(){
         return (this.numeroDados * this.tipoDado) / 2 + +this.modificadorDanno;
+    };
+
+    toMarkdown(){
+        if(!this.esAtaque){
+            return `<b>${this.nombre}.</b> ${this.descripcion}`;
+        }
+        let modDanno = +this.modificadorDanno > 0 ? ` +${this.modificadorDanno}` : ` ${this.modificadorDanno}`;
+
+        return "" + 
+        `<b>${this.nombre}.</b> <em>Ataque con arma ${this.tipoAtaque}.</em>` +
+        `${this.modificadorAtaque > 0 ? "+" : ""}${this.modificadorAtaque} a impactar, alcance ${this.alcance}ft, ` +
+        `${this.objetivos} objetivo${this.objetivos > 1 ? "s" : ""}. ` +
+        `<em>Impacto:</em> ${this.getImpacto()} (${this.numeroDados}d${this.tipoDado} ${modDanno}) de daño ${this.tipoDanno}. ` +
+        this.adicional;
     };
 }

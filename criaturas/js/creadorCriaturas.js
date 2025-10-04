@@ -20,26 +20,7 @@ const TIRADAS_SALVACION = {
 
 const HABILIDADES = {
     nombreLista: "habilidades",
-    opciones : {
-        "atletismo" : "fuerza", 
-        "acrobacias": "destreza", 
-        "con. arcano" : "inteligencia", 
-        "engaño" : "carisma", 
-        "historia": "inteligencia",
-        "interpretación" : "carisma", 
-        "intimidación" : "carisma",
-        "investigación" : "inteligencia",
-        "juego de manos": "destreza", 
-        "medicina": "sabiduria",
-        "naturaleza": "inteligencia",
-        "percepción": "sabiduria",
-        "perspicacia": "sabiduria",
-        "persuasión": "carisma",
-        "religión": "inteligencia",
-        "sigilo": "destreza",
-        "supervicencia": "sabiduria",
-        "trat. con animales": "sabiduria",
-    }
+    opciones : HABILIDADES_CARACTERISTICAS
 };
 
 // INICIALIZACION DE ELEMENTOS INTERACTUABLES DE PANTALLA //
@@ -109,7 +90,6 @@ function init(){
     document.getElementById("add-rasgo").onclick = () => 
         openModal(VIEW_DIR, MODAL_RASGOS, MODAL_ID, () => initModalRasgos());
 
-    // HECHIZOS!
     document.getElementById("esConjurador").onclick = () => {
         setConjurosDisabled(!document.getElementById("esConjurador").checked);
         actualizarEtiquetasConjuros();
@@ -127,8 +107,33 @@ function init(){
     document.getElementById("add-accion").onclick = () =>
         openModal(VIEW_DIR, MODAL_ACCION, MODAL_ID, () => initModalAcciones("acciones"));
 
+    document.getElementById("add-accion-adicional").onclick = () =>
+        openModal(VIEW_DIR, MODAL_ACCION, MODAL_ID, () => initModalAcciones("accionesAdicionales"));
+
     document.getElementById("add-reaccion").onclick = () =>
         openModal(VIEW_DIR, MODAL_ACCION, MODAL_ID, () => initModalAcciones("reacciones"));
+
+    document.getElementById("export-json-btn").onclick = () => {
+        const criatura = new Criatura(
+            Object.fromEntries(new FormData(document.getElementById("formulario_criatura")).entries())
+        );
+        descargar(`${criatura.nombre}.json`, criatura.toJson());
+    }
+
+    document.getElementById("export-md-btn").onclick = () => {
+        const criatura = new Criatura(
+            Object.fromEntries(new FormData(document.getElementById("formulario_criatura")).entries())
+        );
+        descargar(`${criatura.nombre}.txt`, criatura.toMarkdown());
+    }
+
+    document.getElementById("export-both-btn").onclick = () => {
+        const criatura = new Criatura(
+            Object.fromEntries(new FormData(document.getElementById("formulario_criatura")).entries())
+        );
+        descargar(`${criatura.nombre}.json`, criatura.toJson());
+        descargar(`${criatura.nombre}.txt`, criatura.toMarkdown());
+    }
 }
 
 /**
@@ -213,7 +218,8 @@ const alcanceInputElement = document.getElementById("alcance");
     const tipoAreaElement = document.getElementById("tipoAreaEfecto");
     const areaEfectoInputElement = document.getElementById("areaEfecto");
     tipoAreaElement.onchange = () => {
-        areaEfectoInputElement.disabled = tipoAreaElement.value == "objetivo";
+        areaEfectoInputElement.disabled = tipoAreaElement.value == "objetivo" || tipoAreaElement.value == "propio";
+        alcanceInputElement.disabled = tipoAreaElement.value == "propio";
     };
 
     areaEfectoInputElement.oninput = () =>
@@ -266,7 +272,9 @@ function recalcularPercepcionPasiva(){
         ? +document.getElementById("competencia").value : 0; 
     const percepcionPasiva = 10 + modSabiduria + competencia;
 
-    document.getElementById("sentidos_0__Text").innerHTML = `Percepción pasiva (${percepcionPasiva})`;
+    const percepcionPasivaElement = document.getElementById("sentidos_0__Text")
+    percepcionPasivaElement.innerHTML = `Percepción pasiva (${percepcionPasiva})`;
+    percepcionPasivaElement.value = `Percepción pasiva (${percepcionPasiva})`;
 }
 
 /**

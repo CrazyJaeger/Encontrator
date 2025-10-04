@@ -2,18 +2,22 @@ class Conjuro{
     constructor(objeto){
         this.nombre = objeto.nombre;
         this.componentes = {
-            verbal: objeto.verbal == 'on',
-            somatico: objeto.somatico == 'on',
-            material: objeto.material == 'on'
+            verbal: objeto.verbal == CHECKED || objeto.verbal == TRUE,
+            somatico: objeto.somatico == CHECKED || objeto.somatico == TRUE,
+            material: objeto.material == CHECKED || objeto.material == TRUE
         };
-        this.alcance = objeto.alcance;
         this.tipoAreaEfecto = objeto.tipoAreaEfecto;
-        this.areaEfecto = objeto.areaEfecto;       
+        this.alcance = this.tipoAreaEfecto == "propio" ? 0 : objeto.alcance;        
+        if(this.tipoAreaEfecto != "propio" && this.tipoAreaEfecto != "objetivo"){
+            this.areaEfecto = objeto.areaEfecto;
+        }      
         this.tiempoLanzamiento = objeto.tiempoLanzamiento;
         this.duracion = objeto.duracion;
-        this.requiereConcentracion = objeto.requiereConcentracion;
+        this.requiereConcentracion = objeto.requiereConcentracion == CHECKED || objeto.requiereConcentracion == TRUE;
         this.tipoTiradaSalvacion = objeto.tipoTiradaSalvacion;
-        this.tipoSalvacion = objeto.tipoSalvacion;
+        if(this.tipoTiradaSalvacion != "ninguna"){
+            this.tipoSalvacion = objeto.tipoSalvacion;
+        }        
         this.descripcion = objeto.descripcion
         this.enlace = objeto.enlace;        
     };
@@ -188,4 +192,42 @@ class Conjuro{
         
         return containerElement;
     };
+
+    toMarkdown(){
+        const componentesArr = [];
+        for(const componente in this.componentes){
+            if(this.componentes[componente] == true){ 
+                componentesArr.push(componente.toUpperCase()[0]) 
+            }
+        }
+
+        let alcanceTexto = "";
+        if(this.tipoAreaEfecto != "objetivo"){
+            alcanceTexto += this.alcance > 0 ? `${this.alcance}ft` : "pos.";
+            alcanceTexto += `; ${this.tipoAreaEfecto} ${this.areaEfecto}ft`;
+        }else{
+            alcanceTexto += this.alcance > 0 ? `${this.alcance}ft` : "toque"
+        }
+
+        let tiempoLanzamientoTexto = "";
+        if(this.tiempoLanzamiento == "acción"){ tiempoLanzamientoTexto += "acc."; }
+        if(this.tiempoLanzamiento == "acción adicional"){ tiempoLanzamientoTexto += "acc.ad."; }
+        if(this.tiempoLanzamiento == "reacción"){ tiempoLanzamientoTexto += "reac."; }
+        if(this.requiereConcentracion == true){ tiempoLanzamientoTexto += " conc."; }
+        tiempoLanzamientoTexto += ` ${this.duracion}`;
+
+        //tiradaSalvacionTextoElement.innerHTML = 
+                `&lt;${this.tipoTiradaSalvacion.toUpperCase().substring(0, 3)} ${this.tipoSalvacion}&gt;`;
+        if(this.tipoTiradaSalvacion != "ninguna"){
+
+        }
+        const tiradaSalvacionText = this.tipoTiradaSalvacion != "ninguna"
+            ?` \\<${this.tipoTiradaSalvacion.toUpperCase()} ${this.tipoSalvacion}\\>`
+            : "";
+
+        return "" +
+        `<b>${this.nombre}.</b> <em>(${componentesArr.join(", ")})[${alcanceTexto}]{${tiempoLanzamientoTexto}}${tiradaSalvacionText}</em>` +
+        `${this.descripcion}[Leer más...](${this.enlace})`
+        ;
+    }
 }

@@ -15,6 +15,7 @@
     <script src="../js/shared.js"></script>
     <script src="../js/clases/Accion.js"></script>
     <script src="../js/clases/Conjuro.js"></script>
+    <script src="../js/clases/Criatura.js"></script>
     <script src="./js/creadorCriaturas.js"></script>
     <title>Criaturas</title>
 </head>
@@ -24,7 +25,7 @@
         <h5>Crear una nueva criatura</h5>
         <div class="modal fade" id="criaturas-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
-        <form id="formulario-criatura">
+        <form id="formulario_criatura">
             <div class="card mb-3">
                 <div class="card-header">Identificación</div>
                 <div class="card-body form-group row">
@@ -248,7 +249,7 @@
                                 <input type="hidden" id="esCompetenteEnPercepcion" value="false" />
                                 <div id="sentidos" class="row">
                                     <div id="sentidos_0__Container" class="col-md-3 col-form-label">
-                                        <input type="hidden" id="sentidos_0" name="sentidos[0]" value="Percepción pasiva" />
+                                        <input type="hidden" id="sentidos_0" name="sentidos[0]" value="Percepción pasiva (10)" />
                                         <span id="sentidos_0__Text">Percepción pasiva (10)</span>
                                     </div>
                                 </div>
@@ -363,6 +364,11 @@
                     <button id="add-accion" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i></button>
                 </div>
                 <div id="acciones" class="card-body form-group row"></div>
+                <div class="card-header d-flex">
+                    <label for="accionesAdicionales" class="me-3">Acciones Adicionales</label>
+                    <button id="add-accion-adicional" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i></button>
+                </div>
+                <div id="accionesAdicionales" class="card-body form-group row"></div>
                 <div class="card-header d-flex">
                     <label for="reacciones" class="me-3">Reacciones</label>
                     <button id="add-reaccion" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i></button>
