@@ -372,7 +372,7 @@ class Criatura{
         if(this.accionesAdicionales.length > 0){
             markdown +=
             `    <tr>` + "\n" +
-            `        <td colspan="6">` + "\n"
+            `        <td colspan="6">` + "\n" +
             `            <b><em>Acciones Adicionales.</em></b><br/>` + "\n";
             const accAdArr = [];
             for(const accAd in this.accionesAdicionales){
@@ -387,7 +387,7 @@ class Criatura{
         if(this.reacciones.length > 0){
             markdown +=
             `    <tr>` + "\n" +
-            `        <td colspan="6">` + "\n"
+            `        <td colspan="6">` + "\n" +
             `            <b><em>Reacciones.</em></b><br/>` + "\n";
             const reaccArr = [];
             for(const reacc in this.reacciones){
