@@ -375,7 +375,7 @@ class Criatura{
             `        <td colspan="6">` + "\n" +
             `            <b><em>Acciones Adicionales.</em></b><br/>` + "\n";
             const accAdArr = [];
-            for(const accAd in this.accionesAdicionales){
+            for(const accAd of this.accionesAdicionales){
                 accAdArr.push(accAd.toMarkdown());
             }
 
@@ -390,7 +390,7 @@ class Criatura{
             `        <td colspan="6">` + "\n" +
             `            <b><em>Reacciones.</em></b><br/>` + "\n";
             const reaccArr = [];
-            for(const reacc in this.reacciones){
+            for(const reacc of this.reacciones){
                 reaccArr.push(reacc.toMarkdown());
             }
 
