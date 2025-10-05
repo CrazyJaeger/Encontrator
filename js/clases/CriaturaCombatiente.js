@@ -1,0 +1,4 @@
+class CriaturaCombatiente{
+    constructor(objeto){
+    }
+}

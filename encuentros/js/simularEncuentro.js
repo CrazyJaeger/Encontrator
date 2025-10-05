@@ -11,9 +11,16 @@ function init(){
     obtenerJson("encuentros", params.get("hoja"), pintarIniciativa);
     const nextBtn = document.getElementById("next-btn");
     nextBtn.innerHTML = "Tirar iniciativa";
-    nextBtn.onclick = () => tirarIniciativa(Object.fromEntries(
-            new FormData(document.getElementById("formulario_conjuro")).entries()
+    nextBtn.onclick = () => 
+        initDespliegue(new Encuentro(
+            Object.fromEntries(new FormData(document.getElementById("formulario_iniciativa")).entries())
         ));
+}
+
+function initDespliegue(encuentro){
+    const body = document.getElementById("cuerpo-encuentro");
+    body.innerHTML = "";
+    body.appendChild(encuentro.toDespliegueHtml());
 }
 
 // FUNCIONES BASICAS //
@@ -21,15 +28,17 @@ function calcularTiradaIniciativa(iniciativa){
     return Math.floor(Math.random() * 19 + 1) + iniciativa;
 }
 
-function tirarIniciativa(formulario){
-    // TODO
-}
-
 // FUNCIONES DE PINTADO DE ELEMENTOS //
 function pintarIniciativa(encuentroObject){
-    debugger;
     const formularioElement = document.createElement("form");
     formularioElement.id = "formulario_iniciativa";
+
+    const faseInput = document.createElement("input");
+    faseInput.id = "fase";
+    faseInput.name = "fase";
+    faseInput.type = "hidden";
+    faseInput.value = "iniciativa";
+    formularioElement.appendChild(faseInput);
 
     for(const equipo in encuentroObject){
         const cartaElement = document.createElement("div");
@@ -74,10 +83,9 @@ function pintarIniciativa(encuentroObject){
 
             const iniciativaInput = document.createElement("input");
             iniciativaInput.id = `${equipo}_${i}__iniciativa`;
-            iniciativaInput.name = `${equipo}[${i}].nombre`;
+            iniciativaInput.name = `${equipo}[${i}].iniciativa`;
 
             if(integrante.hoja){
-                debugger;
                 iniciativaInput.type = "hidden";
                 iniciativaInput.value = calcularTiradaIniciativa(integrante.iniciativa);
                 
