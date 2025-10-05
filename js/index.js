@@ -10,7 +10,15 @@ function init(){
 // FUNCIONES DE PINTADO DE ELEMENTOS //
 function listarEncuentros(encuentrosObject){
     const listado = document.getElementById("encuentros-lista");
-    for(const encuentro in encuentrosObject.encuentros){
+    for(const encuentro of encuentrosObject.encuentros){
+        const itemElement = document.createElement("li");
+        const anchorElement = document.createElement("a");
+        anchorElement.href= `./encuentros/simularEncuentro.html?encuentro=${encuentro.hoja}`;
+        anchorElement.innerHTML = encuentro.nombre;
 
+        itemElement.appendChild(anchorElement);
+        listado.appendChild(itemElement);
     }
+
+    showElement(document.getElementById("encuentros-card"));
 }

@@ -144,10 +144,5 @@ function descargar(nombre, contenido){
 function obtenerJson(tipo, nombre, callback){
     fetch(`https://raw.githubusercontent.com/CrazyJaeger/Encontrator/refs/heads/${BRANCH}/almacen/${tipo}/${nombre}.json`)
         .then((response) => response.text())
-        .then((response) => {
-            debugger;
-            const aaa = JSON.parse(response);
-            debugger;
-            callback(aaa);
-        });
+        .then((response) => callback(JSON.parse(response)));
 }
