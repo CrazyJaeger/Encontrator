@@ -27,6 +27,7 @@ function tirarIniciativa(formulario){
 
 // FUNCIONES DE PINTADO DE ELEMENTOS //
 function pintarIniciativa(encuentroObject){
+    debugger;
     const formularioElement = document.createElement("form");
     formularioElement.id = "formulario_iniciativa";
 
@@ -76,13 +77,14 @@ function pintarIniciativa(encuentroObject){
             iniciativaInput.name = `${equipo}[${i}].nombre`;
 
             if(integrante.hoja){
+                debugger;
                 iniciativaInput.type = "hidden";
                 iniciativaInput.value = calcularTiradaIniciativa(integrante.iniciativa);
                 
                 const iniciativaLabel = document.createElement("label");
                 iniciativaLabel.htmlFor = `${equipo}_${i}__iniciativa`;
                 iniciativaLabel.classList.add("col-md-3", "col-form-label");
-                
+                iniciativaLabel.innerHTML = iniciativaInput.value;
                 integranteRow.appendChild(iniciativaLabel);
                 integranteRow.appendChild(iniciativaInput);
             }else{
