@@ -1,4 +1,5 @@
 // CONSTANTES Y VARIABLES DEL CU //
+const TURNOS = [];
 
 // INICIALIZACION DE ELEMENTOS INTERACTUABLES DE PANTALLA //
 
@@ -21,6 +22,39 @@ function initDespliegue(encuentro){
     const body = document.getElementById("cuerpo-encuentro");
     body.innerHTML = "";
     body.appendChild(encuentro.toDespliegueHtml());
+    const nextBtn = document.getElementById("next-btn");
+    nextBtn.innerHTML = "Desplegar";
+    nextBtn.onclick = () => 
+        initEncuentro(new Encuentro(
+            Object.fromEntries(new FormData(document.getElementById("formulario_despliegue")).entries())
+        ));
+}
+
+function initEncuentro(encuentro){
+    TURNOS.push(encuentro);
+    const body = document.getElementById("cuerpo-encuentro");
+    body.innerHTML = "";
+    body.appendChild(encuentro.toCombateHtml(combatienteActual));
+
+    const nextBtn = document.getElementById("next-btn");
+    nextBtn.innerHTML = "Siguiente";
+    nextBtn.onclick = () => 
+        initTurnoSiguiente(new Encuentro(
+            Object.fromEntries(new FormData(document.getElementById("formulario_encuento")).entries())
+        ));
+
+    const backBtn = document.getElementById("back-btn");
+    backBtn.disabled = false;
+    backBtn.onclick = () => 
+        initTurnoAnterior();
+}
+
+function initTurnoSiguiente(encuentro){
+
+}
+
+function initTurnoAnterior(){
+    
 }
 
 // FUNCIONES BASICAS //

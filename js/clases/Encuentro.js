@@ -4,9 +4,9 @@ class Encuentro{
         // Primera fase del encuentro: acaba de tirase iniciativa.
         // Calculamos el orden y vamos recuperando las fichas de criatura
         if(objeto.fase == "iniciativa"){
+            this.turno = 0;
             let i;
             let combatientes = [];
-            debugger;
 
             i = 0;
             while(objeto[`enemigos[${i}].nombre`] != undefined){
@@ -14,10 +14,10 @@ class Encuentro{
                     equipo: "enemigos",
                     nombre: objeto[`enemigos[${i}].nombre`],
                     iniciativa: +objeto[`enemigos[${i}].iniciativa`],
-                    // atributos: obtenerJson(
-                    //     "criaturas", objeto[`enemigos[${i}].hoja`], 
-                    //     (obj) => new CriaturaCombatiente(obj)
-                    // ) 
+                    atributos: obtenerJson(
+                        "criaturas", objeto[`enemigos[${i}].hoja`], 
+                        (obj) => new Atributos(obj)
+                    ) 
                 });
                 i++;
             }
@@ -28,10 +28,10 @@ class Encuentro{
                     equipo: "neutral",
                     nombre: objeto[`neutral[${i}].nombre`],
                     iniciativa: +objeto[`neutral[${i}].iniciativa`],
-                    // atributos: obtenerJson(
-                    //     "criaturas", objeto[`neutral[${i}].hoja`], 
-                    //     (obj) => new CriaturaCombatiente(obj)
-                    // ) 
+                    atributos: obtenerJson(
+                        "criaturas", objeto[`neutral[${i}].hoja`], 
+                        (obj) => new Atributos(obj)
+                    ) 
                 });
                 i++;
             }
@@ -42,24 +42,40 @@ class Encuentro{
                     equipo: "aliados",
                     nombre: objeto[`aliados[${i}].nombre`],
                     iniciativa: +objeto[`aliados[${i}].iniciativa`],
-                    // atributos: objeto[`aliados[${i}].hoja`] != ""
-                    //     ? obtenerJson(
-                    //         "criaturas", 
-                    //         objeto[`aliados[${i}].hoja`], 
-                    //         (obj) => new CriaturaCombatiente(obj)
-                    //     ) : null
+                    atributos: objeto[`aliados[${i}].hoja`] != ""
+                        ? obtenerJson(
+                            "criaturas", 
+                            objeto[`aliados[${i}].hoja`], 
+                            (obj) => new Atributos(obj)
+                        ) : null
                 });
                 i++;
             }
 
             this.combatientes = combatientes.sort((a, b) => b.iniciativa - a.iniciativa);
         }
-        debugger;
+        if(objeto.fase == "despliegue"){
+            this.turno = 0;
+            let combatientes = [];
+            i = 0;
+            while(objeto[`combatientes[${i}].nombre`] != undefined){
+                const iniciativaFinal = objeto[`enemigos[${i}].iniciativa`] + "." + objeto[`enemigos[${i}].ventaja`];
+                combatientes.push({
+                    equipo: objeto[`combatientes[${i}].equipo`],
+                    nombre: objeto[`combatientes[${i}].nombre`],
+                    iniciativa: +iniciativaFinal,
+                    // atributos: loquesea 
+                });
+                i++;
+            }
+
+            this.combatientes = combatientes.sort((a, b) => b.iniciativa - a.iniciativa);
+        }
     };
 
     toDespliegueHtml(){
         const formularioElement = document.createElement("form");
-        formularioElement.id = "formulario_iniciativa";
+        formularioElement.id = "formulario_despliegue";
 
         const faseInput = document.createElement("input");
         faseInput.id = "fase";
@@ -133,7 +149,9 @@ class Encuentro{
             ventajaInput.oninput = () => filterNumbers(ventajaInput);
             ventajaCol.appendChild(ventajaInput);
             innerRowElement.appendChild(ventajaCol);
-            // cuerpoElement.appendChild(atributos.toHtmlInputs());            
+            if(this.atributos){
+                cuerpoElement.appendChild(atributos.toHtmlInputs());
+            }                        
             
             innerColElement.appendChild(innerRowElement);
             bodyElement.appendChild(innerColElement);
