@@ -21,13 +21,17 @@
 </head>
 
 <body onload="init()">
-    <div class="container mt-3 mb-3">
+    <div class="container mt-3 mb-3 ms-1 me-1 simulador-container">
         <h5>Simular encuentro</h5>
         <div class="card mb-3">
             <div id="cabecera-encuentro" class="card-header"></div>
-            <div class="card-body form-group row">
-                <div id="cuerpo-encuentro" class="col-md-12"></div>
-            </div>
+            <div id="cuerpo-encuentro" class="card-body form-group"></div>
+        </div>
+        <div class="float-start mb-3">
+            <button id="back-btn" type="button" class="btn btn-secondary" disabled>Vuelta atrás</button>
+        </div>
+        <div class="float-end mb-3">
+            <button id="next-btn" type="button" class="btn btn-primary">Siguiente</button>
         </div>
     </div>
 </body>

@@ -13,3 +13,24 @@
     background-color: #C82909;
     border-color: #C82909;
 }
+.simulador-container{
+    max-width: 100%!important;
+}
+.card-header.aliados{
+    background-color:#A7C7E7
+}
+.card-header.enemigos{
+    background-color:#FAA0A0
+}
+.card-header.neutral{
+    background-color:#FFFAA0
+}
+.card.aliados.current{
+    outline: #6082B6 solid 0.15rem;
+}
+.card.enemigos.current{
+    outline: #9A2A2A solid 0.15rem;
+}
+.card.neutral.current{
+    outline: #FFC000 solid 0.15rem;
+}

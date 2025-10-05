@@ -1,84 +1,101 @@
 {
     "aliados" : [
         {
-            "nombre": "Aetherea",
-            "hoja": null
+            "nombre": "Aetherea",            
+            "hoja": null,
+            "iniciativa": 0
         },
         {
             "nombre": "Érina",
-            "hoja": null
+            "hoja": null,
+            "iniciativa": 0
         },
         {
             "nombre": "Kurdran",
-            "hoja": null
+            "hoja": null,
+            "iniciativa": 0
         },
         {
             "nombre": "Mephis",
-            "hoja": null
+            "hoja": null,
+            "iniciativa": 0
         },
         {
             "nombre": "Nereida",
-            "hoja": null
+            "hoja": null,
+            "iniciativa": 0
         },
         {
             "nombre": "Odolwa",
-            "hoja": null
+            "hoja": null,
+            "iniciativa": 0
         },
         {
             "nombre": "Hideo",
-            "hoja": "Hideo"
+            "hoja": "Hideo",
+            "iniciativa": 3
         }
     ],
     "enemigos" : [
         {
             "nombre":"Capitán Bandido",
-            "hoja": "CapitanBandido"
+            "hoja": "CapitanBandido",
+            "iniciativa": 3
         },
         {
             "nombre":"Capitán Segundo",
-            "hoja": "CapitanBandido"
+            "hoja": "CapitanBandido",
+            "iniciativa": 3
         },
         {
             "nombre":"Bandido asaltante 1",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido asaltante 2",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido asaltante 3",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido asaltante 4",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido asaltante 5",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido tirador 1",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido tirador 2",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido tirador 3",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido tirador 4",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         },
         {
             "nombre":"Bandido tirador 5",
-            "hoja": "Bandido"
+            "hoja": "Bandido",
+            "iniciativa": 1
         }
-    ],
-    "neutral": []
-    
+    ]
 }

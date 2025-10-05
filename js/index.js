@@ -13,7 +13,7 @@ function listarEncuentros(encuentrosObject){
     for(const encuentro of encuentrosObject.encuentros){
         const itemElement = document.createElement("li");
         const anchorElement = document.createElement("a");
-        anchorElement.href= `./encuentros/simularEncuentro.html?encuentro=${encuentro.hoja}`;
+        anchorElement.href= `./encuentros/simularEncuentro.html?nombre=${encuentro.nombre}&hoja=${encuentro.hoja}`;
         anchorElement.innerHTML = encuentro.nombre;
 
         itemElement.appendChild(anchorElement);
