@@ -8,6 +8,7 @@ Registro de cambios realizados en el tiempo
 
 - **Correcciones**
   - Se corrigen varios bugs de JS que habían quedado en el creador de criaturas (especialmente en la exportación a MD)
+  - Se añaden botones de eliminación en rasgos, acciones y conjuros.
 - **Mazmorra**
   - Se añade el primer encuentro para hacer la prueba
 
