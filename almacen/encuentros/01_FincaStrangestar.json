@@ -1,0 +1,84 @@
+{
+    "aliados" : [
+        {
+            "nombre": "Aetherea",
+            "hoja": null
+        },
+        {
+            "nombre": "Érina",
+            "hoja": null
+        },
+        {
+            "nombre": "Kurdran",
+            "hoja": null
+        },
+        {
+            "nombre": "Mephis",
+            "hoja": null
+        },
+        {
+            "nombre": "Nereida",
+            "hoja": null
+        },
+        {
+            "nombre": "Odolwa",
+            "hoja": null
+        },
+        {
+            "nombre": "Hideo",
+            "hoja": "Hideo"
+        }
+    ],
+    "enemigos" : [
+        {
+            "nombre":"Capitán Bandido",
+            "hoja": "CapitanBandido"
+        },
+        {
+            "nombre":"Capitán Segundo",
+            "hoja": "CapitanBandido"
+        },
+        {
+            "nombre":"Bandido asaltante 1",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido asaltante 2",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido asaltante 3",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido asaltante 4",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido asaltante 5",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido tirador 1",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido tirador 2",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido tirador 3",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido tirador 4",
+            "hoja": "Bandido"
+        },
+        {
+            "nombre":"Bandido tirador 5",
+            "hoja": "Bandido"
+        }
+    ],
+    "neutral": []
+    
+}

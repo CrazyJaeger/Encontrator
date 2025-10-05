@@ -311,7 +311,7 @@ class Criatura{
         if(this.rasgos.length > 0){
             markdown +=
             `    <tr>` + "\n" +
-            `        <td colspan="6">` + "\n"
+            `        <td colspan="6">` + "\n" +
             `            <b><em>Rasgos.</em></b><br/>` + "\n";
             const rasgArr = [];
             for(const rasg in this.rasgos){
