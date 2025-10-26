@@ -168,6 +168,18 @@ class Accion {
             textElement.insertAdjacentHTML('beforeend', this.descripcion + ".");
         }
 
+        const btnElement = document.createElement("button");
+        btnElement.id = `${nombreLista}_${idx}__Delete`;
+        btnElement.type = "button";
+        btnElement.classList.add("btn", "btn-sm", "btn-delete", "ms-2")
+        btnElement.onclick = () => eliminarAccion(nombreLista, +btnElement.id.split("_")[1]);
+        
+        const icon = document.createElement("i");
+        icon.classList.add("fa", "fa-trash");
+
+        btnElement.appendChild(icon);
+        textElement.appendChild(btnElement);
+
         containerElement.appendChild(textElement);
 
         return containerElement;

@@ -279,7 +279,7 @@ class Criatura{
         if(this.habilidades.length > 0){
             const habArr = [];
             for(const hab of this.habilidades){
-                habArr.push(`${hab} (${this.pintarSigno(this.calcularModificador(this[TIRADAS_CARACTERISTICAS[hab]]) + this.competencia)})`);
+                habArr.push(`${hab} (${this.pintarSigno(this.calcularModificador(this[HABILIDADES_CARACTERISTICAS[hab]]) + this.competencia)})`);
             }
             markdown += 
             `            <b>Habilidades:</b> ${habArr.join(", ")}<br/>` + "\n";
@@ -311,7 +311,7 @@ class Criatura{
         if(this.rasgos.length > 0){
             markdown +=
             `    <tr>` + "\n" +
-            `        <td colspan="6">` + "\n"
+            `        <td colspan="6">` + "\n" +
             `            <b><em>Rasgos.</em></b><br/>` + "\n";
             const rasgArr = [];
             for(const rasg in this.rasgos){
@@ -372,10 +372,10 @@ class Criatura{
         if(this.accionesAdicionales.length > 0){
             markdown +=
             `    <tr>` + "\n" +
-            `        <td colspan="6">` + "\n"
+            `        <td colspan="6">` + "\n" +
             `            <b><em>Acciones Adicionales.</em></b><br/>` + "\n";
             const accAdArr = [];
-            for(const accAd in this.accionesAdicionales){
+            for(const accAd of this.accionesAdicionales){
                 accAdArr.push(accAd.toMarkdown());
             }
 
@@ -387,10 +387,10 @@ class Criatura{
         if(this.reacciones.length > 0){
             markdown +=
             `    <tr>` + "\n" +
-            `        <td colspan="6">` + "\n"
+            `        <td colspan="6">` + "\n" +
             `            <b><em>Reacciones.</em></b><br/>` + "\n";
             const reaccArr = [];
-            for(const reacc in this.reacciones){
+            for(const reacc of this.reacciones){
                 reaccArr.push(reacc.toMarkdown());
             }
 

@@ -188,7 +188,20 @@ class Conjuro{
             textElement.appendChild(enlaceTextoElement);
         }
 
-        containerElement.appendChild(textElement);
+        const btnElement = document.createElement("button");
+        btnElement.id = `conjuros_${nivel}__conjuros_${idx}__Delete`;
+        btnElement.name = "delete-conjuro-btn";
+        btnElement.type = "button";
+        btnElement.classList.add("btn", "btn-sm", "btn-delete", "ms-2")
+        btnElement.onclick = () => eliminarConjuro(+btnElement.id.split("_")[1], +btnElement.id.split("_")[4]);
+        
+        const icon = document.createElement("i");
+        icon.classList.add("fa", "fa-trash");
+
+        btnElement.appendChild(icon);
+        textElement.appendChild(btnElement);
+
+        containerElement.appendChild(textElement);       
         
         return containerElement;
     };

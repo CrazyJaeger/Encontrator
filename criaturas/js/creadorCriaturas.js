@@ -278,31 +278,6 @@ function recalcularPercepcionPasiva(){
 }
 
 /**
- * Elimina el desplegable indicado
- * 
- * @param {number} idx indice que queremos eliminar
- * @param {string} nombreLista nombre de la lista que estamos editando
- */
-function eliminarInput(idx, nombreLista){
-    const listaElement = document.getElementById(`${nombreLista}`);
-    const containers = listaElement.children;   
-
-    for(let i = idx + 1; i < containers.length; i++){
-        document.getElementById(`${nombreLista}_${i}__Container`).id = `${nombreLista}_${i - 1}__Container`;
-        const inputElement = document.getElementById(`${nombreLista}_${i}`);
-        inputElement.id = `${nombreLista}__${i - 1}`;
-        inputElement.name = `${nombreLista}[${i - 1}]`;
-        document.getElementById(`${nombreLista}_${i}__Delete`).id = `${nombreLista}_${i - 1}__Delete`;
-        const textElement = document.getElementById(`${nombreLista}_${i}__Text`);
-        if(textElement){
-            textElement.id = `${nombreLista}_${i - 1}__Text`
-        }
-    }
-
-    listaElement.removeChild(containers[idx]);
-}
-
-/**
  * Ajusta el valor mostrado en la etiqueta del desplegable
  * 
  * @param {number} idx indice del elemento a ajustar
@@ -371,6 +346,11 @@ function setConjurosDisabled(deshabilitar){
     const deleteConjuroBtns = document.getElementsByName("delete-conjuro-btn");
     for(const btn of deleteConjuroBtns){
         btn.disabled = deshabilitar;
+    }
+
+    const inputs = document.querySelectorAll("input[type=text][id^=conjuros_]");
+    for(const input of inputs){
+        input.disabled = deshabilitar;
     }
 }
 
@@ -455,7 +435,7 @@ function addDesplegable(nombreLista, opciones){
     btnElement.type = "button";
     btnElement.classList.add("btn", "btn-sm", "btn-delete");
     btnElement.onclick = () => {
-        eliminarInput(nextIdx, nombreLista);
+        eliminarInput(+btnElement.id.split("_")[1], nombreLista);
         if(selectElement.value == "percepción"){
             document.getElementById("esCompetenteEnPercepcion").value = FALSE;
             recalcularPercepcionPasiva();
@@ -507,7 +487,7 @@ function addTextbox(nombreLista){
     btnElement.id = `${nombreLista}_${nextIdx}__Delete`;
     btnElement.type = "button";
     btnElement.classList.add("btn", "btn-sm", "btn-delete")
-    btnElement.onclick = () => eliminarInput(nextIdx, nombreLista);
+    btnElement.onclick = () => eliminarInput(+btnElement.id.split("_")[1], nombreLista);
     
     const icon = document.createElement("i");
     icon.classList.add("fa", "fa-trash");
@@ -550,6 +530,18 @@ function addRasgo(){
     containerElement.appendChild(titleElement);
 
     containerElement.insertAdjacentHTML('beforeend', document.getElementById("nuevoRasgo_Value").value);
+
+    const btnElement = document.createElement("button");
+    btnElement.id = `rasgos_${nextIdx}__Delete`;
+    btnElement.type = "button";
+    btnElement.classList.add("btn", "btn-sm", "btn-delete", "ms-2")
+    btnElement.onclick = () => eliminarRasgo(+btnElement.id.split("_")[1]);
+    
+    const icon = document.createElement("i");
+    icon.classList.add("fa", "fa-trash");
+
+    btnElement.appendChild(icon);
+    containerElement.appendChild(btnElement);
     
     listaElement.appendChild(containerElement);
 }
@@ -602,13 +594,26 @@ function addNivelConjuro(){
     addButtonElement.type="button";
     addButtonElement.classList.add("btn", "btn-sm", "btn-primary");
     addButtonElement.onclick = () => 
-        openModal(VIEW_DIR, MODAL_CONJURO, MODAL_ID, () => initModalConjuros(idx));
+        openModal(VIEW_DIR, MODAL_CONJURO, MODAL_ID, () => initModalConjuros(+addButtonElement.id.split("_")[2]));
 
     const iconElement = document.createElement("i");
     iconElement.classList.add("fa", "fa-plus");
     addButtonElement.appendChild(iconElement);
-
     headerElement.appendChild(addButtonElement);
+
+    const deleteBtnElement = document.createElement("button");
+    deleteBtnElement.id = `conjuros_${idx}__Delete`;
+    deleteBtnElement.name = "delete-nivel-conjuro-btn";
+    deleteBtnElement.type = "button";
+    deleteBtnElement.classList.add("btn", "btn-sm", "btn-delete", "ms-2")
+    deleteBtnElement.onclick = () => eliminarNivelConjuros(+deleteBtnElement.id.split("_")[1]);
+    
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa", "fa-trash");
+
+    deleteBtnElement.appendChild(trashIcon);
+    headerElement.appendChild(deleteBtnElement);
+
     containerElement.appendChild(headerElement);
 
     const conjurosListElement = document.createElement("div");
@@ -617,4 +622,274 @@ function addNivelConjuro(){
     containerElement.appendChild(conjurosListElement);
 
     listaElement.appendChild(containerElement);
+}
+
+/**
+ * Elimina el desplegable indicado
+ * 
+ * @param {number} idx indice que queremos eliminar
+ * @param {string} nombreLista nombre de la lista que estamos editando
+ */
+function eliminarInput(idx, nombreLista){
+    const listaElement = document.getElementById(`${nombreLista}`);
+    const containers = listaElement.children;   
+
+    for(let i = idx + 1; i < containers.length; i++){
+        document.getElementById(`${nombreLista}_${i}__Container`).id = `${nombreLista}_${i - 1}__Container`;
+        const inputElement = document.getElementById(`${nombreLista}_${i}`);
+        inputElement.id = `${nombreLista}__${i - 1}`;
+        inputElement.name = `${nombreLista}[${i - 1}]`;
+        document.getElementById(`${nombreLista}_${i}__Delete`).id = `${nombreLista}_${i - 1}__Delete`;
+        const textElement = document.getElementById(`${nombreLista}_${i}__Text`);
+        if(textElement){
+            textElement.id = `${nombreLista}_${i - 1}__Text`
+        }
+    }
+
+    listaElement.removeChild(containers[idx]);
+}
+
+/**
+ * Elimina el rasgo con el índice indicado de la lista de rasgos
+ * 
+ * @param {number} idx indice del rasgo a eliminar
+ */
+function eliminarRasgo(idx){
+    const listaElement = document.getElementById("rasgos");
+    const containers = listaElement.children;
+    for(let i = idx + 1; i < containers.length; i++){
+        document.getElementById(`rasgos_${i}__Container`).id = `rasgos_${i - 1}__Container`;
+        const key = document.getElementById(`rasgos_${i}__Key`);
+        key.id = `rasgos_${i - 1}__Key`;
+        key.name = `rasgos[${i - 1}].Key`;
+        const value = document.getElementById(`rasgos_${i}__Value`);
+        value.id = `rasgos_${i - 1}__Value`;
+        value.name = `rasgos[${i - 1}].Value`;
+        document.getElementById(`rasgos_${i}__Delete`).id = `rasgos_${i - 1}__Delete`;
+    }
+
+    listaElement.removeChild(containers[idx]);
+}
+
+/**
+ * Elimina el nivel de conjuro indicado de la lista de niveles de conjuro
+ * 
+ * @param {number} nivel nivel de conjuro a eliminar
+ */
+function eliminarNivelConjuros(nivel){
+    const listaElement = document.getElementById("conjuros");
+    const containers = listaElement.children;
+    for(let j = nivel + 1; j < containers.length; j++){
+        document.getElementById(`conjuros_${j}__Container`).id = `conjuros_${j - 1}__Container`;
+        
+        const nivelElement = document.getElementById(`conjuros_${j}__nivel`);
+        nivelElement.id = `conjuros_${j - 1}__nivel`;
+        nivelElement.name = `conjuros[${j - 1}].nivel`;
+
+        const espaciosElement = document.getElementById(`conjuros_${j}__espacios`);
+        espaciosElement.id = `conjuros_${j - 1}__espacios`;
+        espaciosElement.name = `conjuros[${j - 1}].espacios`;
+
+        document.getElementById(`add_conjuro_${j}`).id = `add_conjuro_${j - 1}`;
+        document.getElementById(`conjuros_${j}__Delete`).id = `conjuros_${j - 1}__Delete`;
+
+        const conjurosList = document.getElementById(`conjuros_${j}__conjuros`);
+        conjurosList.id = `conjuros_${j - 1}__conjuros`;
+        for(let i = 0; i < conjurosList.children.length; i++){
+            document.getElementById(`conjuros_${j}__conjuros_${i}__Container`).id = `conjuros_${j - 1}__conjuros_${i}__Container`;
+        
+            const nombre = document.getElementById(`conjuros_${j}__conjuros_${i}__nombre`);
+            nombre.id = `conjuros_${j - 1}__conjuros_${i}__nombre`;
+            nombre.name = `conjuros[${j - 1}].conjuros[${i}].nombre`;
+            
+            const verbal = document.getElementById(`conjuros_${j}__conjuros_${i}__componente_verbal`);
+            verbal.id = `conjuros_${j - 1}__conjuros_${i}__componente_verbal`;
+            verbal.name = `conjuros[${j - 1}].conjuros[${i}].componente.verbal`;
+            
+            const somatico = document.getElementById(`conjuros_${j}__conjuros_${i}__componente_somatico`);
+            somatico.id = `conjuros_${j - 1}__conjuros_${i}__componente_somatico`;
+            somatico.name = `conjuros[${j - 1}].conjuros[${i}].componente.somatico`;
+            
+            const material = document.getElementById(`conjuros_${j}__conjuros_${i}__componente_material`);
+            material.id = `conjuros_${j - 1}__conjuros_${i}__componente_material`;
+            material.name = `conjuros[${j - 1}].conjuros[${i}].componente.material`;
+            
+            const alcance = document.getElementById(`conjuros_${j}__conjuros_${i}__alcance`);
+            alcance.id = `conjuros_${j - 1}__conjuros_${i}__alcance`;
+            alcance.name = `conjuros[${j - 1}].conjuros[${i}].alcance`;
+            
+            const tipoAreaEfecto = document.getElementById(`conjuros_${j}__conjuros_${i}__tipoAreaEfecto`);
+            tipoAreaEfecto.id = `conjuros_${j - 1}__conjuros_${i}__tipoAreaEfecto`;
+            tipoAreaEfecto.name = `conjuros[${j - 1}].conjuros[${i}].tipoAreaEfecto`;
+            
+            const areaEfecto = document.getElementById(`conjuros_${j}__conjuros_${i}__areaEfecto`);
+            areaEfecto.id = `conjuros_${j - 1}__conjuros_${i}__areaEfecto`;
+            areaEfecto.name = `conjuros[${j - 1}].conjuros[${i}].areaEfecto`;
+            
+            const tiempoLanzamiento = document.getElementById(`conjuros_${j}__conjuros_${i}__tiempoLanzamiento`);
+            tiempoLanzamiento.id = `conjuros_${j - 1}__conjuros_${i}__tiempoLanzamiento`;
+            tiempoLanzamiento.name = `conjuros[${j - 1}].conjuros[${i}].tiempoLanzamiento`;
+            
+            const duracion = document.getElementById(`conjuros_${j}__conjuros_${i}__duracion`);
+            duracion.id = `conjuros_${j - 1}__conjuros_${i}__duracion`;
+            duracion.name = `conjuros[${j - 1}].conjuros[${i}].duracion`;
+            
+            const requiereConcentracion = document.getElementById(`conjuros_${j}__conjuros_${i}__requiereConcentracion`);
+            requiereConcentracion.id = `conjuros_${j - 1}__conjuros_${i}__requiereConcentracion`;
+            requiereConcentracion.name = `conjuros[${j - 1}].conjuros[${i}].requiereConcentracion`;
+            
+            const tipoTiradaSalvacion = document.getElementById(`conjuros_${j}__conjuros_${i}__tipoTiradaSalvacion`);
+            tipoTiradaSalvacion.id = `conjuros_${j - 1}__conjuros_${i}__tipoTiradaSalvacion`;
+            tipoTiradaSalvacion.name = `conjuros[${j - 1}].conjuros[${i}].tipoTiradaSalvacion`;
+            
+            const descripcion = document.getElementById(`conjuros_${j}__conjuros_${i}__descripcion`);
+            descripcion.id = `conjuros_${j - 1}__conjuros_${i}__descripcion`;
+            descripcion.name = `conjuros[${j - 1}].conjuros[${i}].descripcion`;
+            
+            const enlace = document.getElementById(`conjuros_${j}__conjuros_${i}__enlace`);
+            enlace.id = `conjuros_${j - 1}__conjuros_${i}__enlace`;
+            enlace.name = `conjuros[${j - 1}].conjuros[${i}].enlace`;
+
+            document.getElementById(`conjuros_${j}__conjuros_${i}__Texto`).id = `conjuros_${j - 1}__conjuros_${i}__Texto`;
+            document.getElementById(`conjuros_${j}__conjuros_${i}__Delete`).id = `conjuros_${j - 1}__conjuros_${i}__Delete`;
+        }
+    }
+
+    listaElement.removeChild(containers[nivel]);
+}
+
+/**
+ * Elimina el conjuro indicado de la lista de conjuros del nivel correspondiente
+ * 
+ * @param {number} nivel nivel del conjuro a eliminar
+ * @param {number} idx índice del conjuro a eliminar
+ */
+function eliminarConjuro(nivel, idx){
+    const listaElement = document.getElementById(`conjuros_${nivel}__conjuros`);
+    const containers = listaElement.children;
+    for(let i = idx + 1; i < containers.length; i++){
+        document.getElementById(`conjuros_${nivel}__conjuros_${i}__Container`).id = `conjuros_${nivel}__conjuros_${i - 1}__Container`;
+        
+        const nombre = document.getElementById(`conjuros_${nivel}__conjuros_${i}__nombre`);
+        nombre.id = `conjuros_${nivel}__conjuros_${i - 1}__nombre`;
+        nombre.name = `conjuros[${nivel}].conjuros[${i - 1}].nombre`;
+        
+        const verbal = document.getElementById(`conjuros_${nivel}__conjuros_${i}__componente_verbal`);
+        verbal.id = `conjuros_${nivel}__conjuros_${i - 1}__componente_verbal`;
+        verbal.name = `conjuros[${nivel}].conjuros[${i - 1}].componente.verbal`;
+        
+        const somatico = document.getElementById(`conjuros_${nivel}__conjuros_${i}__componente_somatico`);
+        somatico.id = `conjuros_${nivel}__conjuros_${i - 1}__componente_somatico`;
+        somatico.name = `conjuros[${nivel}].conjuros[${i - 1}].componente.somatico`;
+        
+        const material = document.getElementById(`conjuros_${nivel}__conjuros_${i}__componente_material`);
+        material.id = `conjuros_${nivel}__conjuros_${i - 1}__componente_material`;
+        material.name = `conjuros[${nivel}].conjuros[${i - 1}].componente.material`;
+        
+        const alcance = document.getElementById(`conjuros_${nivel}__conjuros_${i}__alcance`);
+        alcance.id = `conjuros_${nivel}__conjuros_${i - 1}__alcance`;
+        alcance.name = `conjuros[${nivel}].conjuros[${i - 1}].alcance`;
+        
+        const tipoAreaEfecto = document.getElementById(`conjuros_${nivel}__conjuros_${i}__tipoAreaEfecto`);
+        tipoAreaEfecto.id = `conjuros_${nivel}__conjuros_${i - 1}__tipoAreaEfecto`;
+        tipoAreaEfecto.name = `conjuros[${nivel}].conjuros[${i - 1}].tipoAreaEfecto`;
+        
+        const areaEfecto = document.getElementById(`conjuros_${nivel}__conjuros_${i}__areaEfecto`);
+        areaEfecto.id = `conjuros_${nivel}__conjuros_${i - 1}__areaEfecto`;
+        areaEfecto.name = `conjuros[${nivel}].conjuros[${i - 1}].areaEfecto`;
+        
+        const tiempoLanzamiento = document.getElementById(`conjuros_${nivel}__conjuros_${i}__tiempoLanzamiento`);
+        tiempoLanzamiento.id = `conjuros_${nivel}__conjuros_${i - 1}__tiempoLanzamiento`;
+        tiempoLanzamiento.name = `conjuros[${nivel}].conjuros[${i - 1}].tiempoLanzamiento`;
+        
+        const duracion = document.getElementById(`conjuros_${nivel}__conjuros_${i}__duracion`);
+        duracion.id = `conjuros_${nivel}__conjuros_${i - 1}__duracion`;
+        duracion.name = `conjuros[${nivel}].conjuros[${i - 1}].duracion`;
+        
+        const requiereConcentracion = document.getElementById(`conjuros_${nivel}__conjuros_${i}__requiereConcentracion`);
+        requiereConcentracion.id = `conjuros_${nivel}__conjuros_${i - 1}__requiereConcentracion`;
+        requiereConcentracion.name = `conjuros[${nivel}].conjuros[${i - 1}].requiereConcentracion`;
+        
+        const tipoTiradaSalvacion = document.getElementById(`conjuros_${nivel}__conjuros_${i}__tipoTiradaSalvacion`);
+        tipoTiradaSalvacion.id = `conjuros_${nivel}__conjuros_${i - 1}__tipoTiradaSalvacion`;
+        tipoTiradaSalvacion.name = `conjuros[${nivel}].conjuros[${i - 1}].tipoTiradaSalvacion`;
+        
+        const descripcion = document.getElementById(`conjuros_${nivel}__conjuros_${i}__descripcion`);
+        descripcion.id = `conjuros_${nivel}__conjuros_${i - 1}__descripcion`;
+        descripcion.name = `conjuros[${nivel}].conjuros[${i - 1}].descripcion`;
+        
+        const enlace = document.getElementById(`conjuros_${nivel}__conjuros_${i}__enlace`);
+        enlace.id = `conjuros_${nivel}__conjuros_${i - 1}__enlace`;
+        enlace.name = `conjuros[${nivel}].conjuros[${i - 1}].enlace`;
+
+        document.getElementById(`conjuros_${nivel}__conjuros_${i}__Texto`).id = `conjuros_${nivel}__conjuros_${i - 1}__Texto`;
+        document.getElementById(`conjuros_${nivel}__conjuros_${i}__Delete`).id = `conjuros_${nivel}__conjuros_${i - 1}__Delete`;
+    }
+
+    listaElement.removeChild(containers[idx]);
+}
+
+/**
+ * Elimina la acción indicada de la lista de acciones correspondiente
+ * 
+ * @param {string} nombrelista nombre de la lista de acciones
+ * @param {number} idx índice de la acción a eliminar
+ */
+function eliminarAccion(nombrelista, idx){
+    const listaElement = document.getElementById(nombrelista);
+    const containers = listaElement.children;
+    for(let i = idx + 1; i < containers.length; i++){
+        document.getElementById(`${nombrelista}_${i}__Container`).id = `${nombrelista}_${i - 1}__Container`;
+
+        const esAtaque = document.getElementById(`${nombrelista}_${i}__esAtaque`);
+        esAtaque.id = `${nombrelista}_${i - 1}__esAtaque`;
+        esAtaque.name = `${nombrelista}[${i - 1}].esAtaque`;
+
+        const nombre = document.getElementById(`${nombrelista}_${i}__nombre`);
+        nombre.id = `${nombrelista}_${i - 1}__nombre`;
+        nombre.name = `${nombrelista}[${i - 1}].nombre`;
+
+        if(esAtaque.value == TRUE){
+            const tipoAtaque = document.getElementById(`${nombrelista}_${i}__tipoAtaque`);
+            tipoAtaque.id = `${nombrelista}_${i - 1}__tipoAtaque`;
+            tipoAtaque.name = `${nombrelista}[${i - 1}].tipoAtaque`;
+            
+            const modificadorAtaque = document.getElementById(`${nombrelista}_${i}__modificadorAtaque`);
+            modificadorAtaque.id = `${nombrelista}_${i - 1}__modificadorAtaque`;
+            modificadorAtaque.name = `${nombrelista}[${i - 1}].modificadorAtaque`;
+
+            const alcance = document.getElementById(`${nombrelista}_${i}__alcance`);
+            alcance.id = `${nombrelista}_${i - 1}__alcance`;
+            alcance.name = `${nombrelista}[${i - 1}].alcance`;
+
+            const objetivos = document.getElementById(`${nombrelista}_${i}__objetivos`);
+            objetivos.id = `${nombrelista}_${i - 1}__objetivos`;
+            objetivos.name = `${nombrelista}[${i - 1}].objetivos`;
+
+            const numeroDados = document.getElementById(`${nombrelista}_${i}__numeroDados`);
+            numeroDados.id = `${nombrelista}_${i - 1}__numeroDados`;
+            numeroDados.name = `${nombrelista}[${i - 1}].numeroDados`;
+
+            const tipoDado = document.getElementById(`${nombrelista}_${i}__tipoDado`);
+            tipoDado.id = `${nombrelista}_${i - 1}__tipoDado`;
+            tipoDado.name = `${nombrelista}[${i - 1}].tipoDado`;
+
+            const modificadorDanno = document.getElementById(`${nombrelista}_${i}__modificadorDanno`);
+            modificadorDanno.id = `${nombrelista}_${i - 1}__modificadorDanno`;
+            modificadorDanno.name = `${nombrelista}[${i - 1}].modificadorDanno`;
+
+            const tipoDanno = document.getElementById(`${nombrelista}_${i}__tipoDanno`);
+            tipoDanno.id = `${nombrelista}_${i - 1}__tipoDanno`;
+            tipoDanno.name = `${nombrelista}[${i - 1}].tipoDanno`;
+        }else{
+            const descripcion = document.getElementById(`${nombrelista}_${i}__descripcion`);
+            descripcion.id = `${nombrelista}_${i - 1}__descripcion`;
+            descripcion.name = `${nombrelista}[${i - 1}].descripcion`;
+        }
+
+        document.getElementById(`${nombrelista}_${i}__Texto`).id = `${nombrelista}_${i - 1}__Texto`;
+        document.getElementById(`${nombrelista}_${i}__Delete`).id = `${nombrelista}_${i - 1}__Delete`;
+    }
+
+    listaElement.removeChild(containers[idx]);
 }

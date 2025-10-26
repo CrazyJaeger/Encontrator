@@ -78,6 +78,14 @@ function filterNumbers(element){
     element.value = finalValue;
 }
 
+/**
+ * Muestra una vista parcial en un elemento modal.
+ * 
+ * @param {string} viewDir directorio donde está la vista parcial
+ * @param {string} viewName nombre de la vista parcial (sin extensión)
+ * @param {string} modalId nombre del elemento modal que contendrá la vista
+ * @param {() => void} initFunc función de inicialización de la vista
+ */
 function openModal(viewDir, viewName, modalId, initFunc){
     fetch(`https://raw.githubusercontent.com/CrazyJaeger/Encontrator/refs/heads/${BRANCH}/${viewDir}/views/${viewName}.html`)
         .then((response) => response.text())
@@ -91,14 +99,30 @@ function openModal(viewDir, viewName, modalId, initFunc){
         .then(() => initFunc());
 }
 
+/**
+ * Muestra el elemento oculto indicado en pantalla
+ * 
+ * @param {HTMLElement} element elemento a mostrar
+ */
 function showElement(element){
     element.style = "";
 }
 
+/**
+ * Muestra el elemento a ocultar en la pantalla
+ * 
+ * @param {HTMLElement} element  elemento a ocultar
+ */
 function hideElement(element){
     element.style = "display:none;";
 }
 
+/**
+ * Genera un fichero con el contenido proporcionado y lo descarga
+ * 
+ * @param {string} nombre nombre completo del fichero
+ * @param {string} contenido contenido del fichero
+ */
 function descargar(nombre, contenido){
     const element = document.createElement('a');
     element.style.display = "none";
