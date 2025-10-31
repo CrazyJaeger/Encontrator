@@ -1,6 +1,6 @@
 class Accion {
     constructor(objeto) {
-        this.esAtaque = objeto.esAtaque == TRUE;
+        this.esAtaque = objeto.esAtaque == TRUE || objeto.esAtaque == true;
         this.nombre = objeto.nombre;
         if (this.esAtaque) {
             this.tipoAtaque = objeto.tipoAtaque;

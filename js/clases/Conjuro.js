@@ -2,9 +2,9 @@ class Conjuro{
     constructor(objeto){
         this.nombre = objeto.nombre;
         this.componentes = {
-            verbal: objeto.verbal == CHECKED || objeto.verbal == TRUE,
-            somatico: objeto.somatico == CHECKED || objeto.somatico == TRUE,
-            material: objeto.material == CHECKED || objeto.material == TRUE
+            verbal: objeto.verbal == CHECKED || objeto.verbal == TRUE || objeto.verbal == true,
+            somatico: objeto.somatico == CHECKED || objeto.somatico == TRUE || objeto.somatico == true,
+            material: objeto.material == CHECKED || objeto.material == TRUE || objeto.material == true
         };
         this.tipoAreaEfecto = objeto.tipoAreaEfecto;
         this.alcance = this.tipoAreaEfecto == "propio" ? 0 : objeto.alcance;        
@@ -13,7 +13,7 @@ class Conjuro{
         }      
         this.tiempoLanzamiento = objeto.tiempoLanzamiento;
         this.duracion = objeto.duracion;
-        this.requiereConcentracion = objeto.requiereConcentracion == CHECKED || objeto.requiereConcentracion == TRUE;
+        this.requiereConcentracion = objeto.requiereConcentracion == CHECKED || objeto.requiereConcentracion == TRUE || objeto.requiereConcentracion == true;
         this.tipoTiradaSalvacion = objeto.tipoTiradaSalvacion;
         if(this.tipoTiradaSalvacion != "ninguna"){
             this.tipoSalvacion = objeto.tipoSalvacion;

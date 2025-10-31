@@ -13,3 +13,42 @@
     background-color: #C82909;
     border-color: #C82909;
 }
+.simulador-container{
+    max-width: 100%!important;
+}
+.card-header.aliados{
+    background-color:#A7C7E7
+}
+.card-header.enemigos{
+    background-color:#FAA0A0
+}
+.card-header.neutral{
+    background-color:#FFFAA0
+}
+.card-header.aliados.injured{
+    background: linear-gradient(to bottom, #A7C7E7, #880808);
+}
+.card-header.enemigos.injured{
+        background: linear-gradient(to bottom, #FAA0A0, #880808);
+}
+.card-header.neutral.injured{
+    background: linear-gradient(to bottom, #FFFAA0, #880808);
+}
+.card-header.aliados.dead{
+    background: linear-gradient(to bottom, #A7C7E7, #607164);
+}
+.card-header.enemigos.dead{
+        background: linear-gradient(to bottom, #FAA0A0, #607164);
+}
+.card-header.neutral.dead{
+    background: linear-gradient(to bottom, #FFFAA0, #607164);
+}
+.col-form-label.aliados{
+    background-color:#A7C7E7
+}
+.col-form-label.enemigos{
+    background-color:#FAA0A0
+}
+.col-form-label.neutral{
+    background-color:#FFFAA0
+}

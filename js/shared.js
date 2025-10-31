@@ -1,5 +1,5 @@
 // CONSTANTES //
-const BRANCH = "main";
+const BRANCH = "main" /*"main"*/;
 const EXP_DESAFIO = {
     "0": "10px",
     "1/8": "25px",
@@ -71,7 +71,7 @@ const CHECKED = "on";
 function filterNumbers(element){
     let finalValue = "";
     for(const c of element.value){
-        if(+c != NaN){
+        if(c <= '9' && c >= '0'){
             finalValue += c;
         }
     }
@@ -132,4 +132,17 @@ function descargar(nombre, contenido){
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+}
+
+/**
+ * Obtiene un objeto almacenado en formato JSON del almacén de entidades
+ * 
+ * @param {string} tipo tipo de objeto que queremos recuperar
+ * @param {string} nombre nombre del objeto (sin extensión)
+ * @param {(Object) => void} callback función callback que recibe el objeto como resultado
+ */
+function obtenerJson(tipo, nombre, callback){
+    fetch(`https://raw.githubusercontent.com/CrazyJaeger/Encontrator/refs/heads/${BRANCH}/almacen/${tipo}/${nombre}.json`)
+        .then((response) => response.text())
+        .then((response) => callback(JSON.parse(response)));
 }
