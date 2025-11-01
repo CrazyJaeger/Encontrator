@@ -1,0 +1,31 @@
+{
+    "aliados" : [
+        {
+            "nombre": "Jugador",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Hideo",
+            "hoja": "Hideo",
+            "iniciativa": 3
+        }
+    ],
+    "enemigos" : [
+        {
+            "nombre":"Capitán Bandido",
+            "hoja": "CapitanBandido",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Bandido 1",
+            "hoja": "Bandido",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Bandido 2",
+            "hoja": "Bandido",
+            "iniciativa": 1
+        }
+    ]
+}
