@@ -35,6 +35,7 @@
         "agotamiento",
         "envenenado"
     ],
+    "vulnerabilidadesDanno": [],
     "inmunidadesDanno": [
         "veneno"
     ],
