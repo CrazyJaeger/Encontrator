@@ -9,6 +9,9 @@ Registro de cambios realizados en el tiempo
 - **Correcciones**
   - Corrección del error al generar formato *MarkDown* de la criatura
 
+- **Mejoras**
+  - Se añade vulnerabilidad al daño a la hoja de criatura
+
 - **Mazmorra**
   - Se anonimiza encuentro de demo para eliminar caso concreto de campaña real
 - **Técnico**
@@ -20,10 +23,10 @@ Registro de cambios realizados en el tiempo
 - **Correcciones**
   - Se corrigen varios bugs de JS que habían quedado en el creador de criaturas (especialmente en la exportación a MD)
   - Se añaden botones de eliminación en rasgos, acciones y conjuros.
-- **Mazmorra**
-  - Se añade un encuentro demo
 - **Mejoras**
   - Se implementa funcionalidad de simulador de encuentros
+- **Mazmorra**
+  - Se añade un encuentro demo
 
 
 ## v1.0.0 - Creador de criaturas
