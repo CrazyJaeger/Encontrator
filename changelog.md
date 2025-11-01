@@ -6,6 +6,9 @@ Registro de cambios realizados en el tiempo
 
 ## v1.1.1 - Strangestar
 
+- **Correcciones**
+  - Corrección del error al generar formato *MarkDown* de la criatura
+
 - **Mazmorra**
   - Se anonimiza encuentro de demo para eliminar caso concreto de campaña real
 - **Técnico**

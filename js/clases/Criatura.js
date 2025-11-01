@@ -351,8 +351,8 @@ class Criatura {
                 `        <td colspan="6">` + "\n" +
                 `            <b><em>Rasgos.</em></b><br/>` + "\n";
             const rasgArr = [];
-            for (const rasg in this.rasgos) {
-                rasgArr.push(`<b>${rasg}.<b/> ${this.rasgos[rasg]}`)
+            for (const rasg of this.rasgos) {
+                rasgArr.push(`<b>${Object.keys(rasg)[0]}.<b/> ${Object.values(rasg)[0]}`)
             }
             markdown += rasgArr.join("<br/>\n") + "\n";
 
