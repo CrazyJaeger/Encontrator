@@ -1,5 +1,5 @@
 // CONSTANTES //
-const BRANCH = "main" /*"main"*/;
+const BRANCH = "strangestar" /*"main"*/;
 const EXP_DESAFIO = {
     "0": "10px",
     "1/8": "25px",

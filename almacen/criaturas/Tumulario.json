@@ -1,0 +1,87 @@
+{
+    "nombre": "Tumulario",
+    "tipoCriatura": "No muerto",
+    "tamanno": "mediano",
+    "alineamiento": "neutral",
+    "claseArmadura": 14,
+    "tipoArmadura": "cuero endurecido",
+    "puntosGolpe": 45,
+    "dadosGolpe": "6d6+18",
+    "velocidad": "30",
+    "velocidadNado": "",
+    "velocidadVuelo": "",
+    "competencia": 2,
+    "desafio": "3",
+    "fuerza": 15,
+    "destreza": 14,
+    "constitucion": 16,
+    "inteligencia": 10,
+    "sabiduria": 13,
+    "carisma": 15,
+    "iniciativa": 2,
+    "tiradaSalvacion": [],
+    "habilidades": [
+        "percepción",
+        "sigilo"
+    ],
+    "sentidos": [
+        "Percepción pasiva (10)",
+        "Visión en la oscuridad (60ft)"
+    ],
+    "idiomas": [
+        "Los que conociera en vida"
+    ],
+    "inmunidadesEstado": [
+        "agotamiento",
+        "envenenado"
+    ],
+    "inmunidadesDanno": [
+        "veneno"
+    ],
+    "resistenciasDanno": [
+        "necrótico",
+        "contundente, perforante y cortante no mágicos o sin plata"
+    ],
+    "rasgos": [
+        {
+            "Sensibilidad a la luz del sol": "Mientras está expuesto a la luz del sol, el tumulario tiene desventaja en las tiradas de ataque, así como en las pruebas de Sabiduría (Percepción) que se basen en la vista."
+        }
+    ],
+    "conjuros": [],
+    "esConjurador": false,
+    "acciones": [
+        {
+            "esAtaque": false,
+            "nombre": " Multiataque",
+            "descripcion": "El tumulario realiza dos ataques de espada larga o dos ataques de arco largo. Puede usar Drenar vida en lugar de hacer uno de los ataques de espada larga."
+        },
+        {
+            "esAtaque": true,
+            "nombre": " Drenar vida",
+            "tipoAtaque": "cuerpo a cuerpo",
+            "modificadorAtaque": "4",
+            "alcance": "5",
+            "objetivos": "1",
+            "numeroDados": "1",
+            "tipoDado": "6",
+            "modificadorDanno": "2",
+            "tipoDanno": "necrótico",
+            "adicional": "El objetivo debe superar una tirada de salvación de Constitución CD 13 para evitar que su máximo de puntos de golpe se reduzca una cantidad igual al daño recibido. Esta reducción dura hasta que el objetivo termine un descanso prolongado. El objetivo muere si este efecto reduce su máximo de puntos de golpe a 0."
+        },
+        {
+            "esAtaque": true,
+            "nombre": " Espada larga",
+            "tipoAtaque": "cuerpo a cuerpo",
+            "modificadorAtaque": "4",
+            "alcance": "5",
+            "objetivos": "1",
+            "numeroDados": "1",
+            "tipoDado": "10",
+            "modificadorDanno": "2",
+            "tipoDanno": "cortante",
+            "adicional": ""
+        }
+    ],
+    "accionesAdicionales": [],
+    "reacciones": []
+}

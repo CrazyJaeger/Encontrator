@@ -1,0 +1,51 @@
+{
+   "aliados" : [
+        {
+            "nombre": "Aetherea",            
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Érina",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Kurdran",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Mephis",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Nereida",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Odolwa",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Hideo",
+            "hoja": "Hideo",
+            "iniciativa": 3
+        }
+    ],
+    "enemigos" : [
+        {
+            "nombre":"Tumulario",
+            "hoja": "Tumulario",
+            "iniciativa": 2
+        },
+        {
+            "nombre":"Minotauro Esqueleto",
+            "hoja": "MinotauroEsqueleto",
+            "iniciativa": 0
+        }
+    ]
+}
