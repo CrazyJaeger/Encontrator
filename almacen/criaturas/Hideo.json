@@ -1,1 +1,94 @@
-{"nombre":"Hideo","tipoCriatura":"Humanoide (Dracónido azul)","tamanno":"mediano","alineamiento":"neutral verdadero","claseArmadura":14,"tipoArmadura":"armadura de cuero","puntosGolpe":75,"dadosGolpe":"17d8","velocidad":"30","velocidadNado":"","velocidadVuelo":"","competencia":2,"desafio":"2","fuerza":10,"destreza":16,"constitucion":10,"inteligencia":10,"sabiduria":14,"carisma":16,"iniciativa":3,"tiradaSalvacion":["destreza","fuerza"],"habilidades":["sigilo","engaño","percepción"],"sentidos":["Percepción pasiva (10)"],"idiomas":["Común","Dracónico"],"inmunidadesEstado":[],"inmunidadesDanno":[],"resistenciasDanno":["Eléctrico"],"rasgos":[{"Ancestría dracónica":"El dracódido obtiene resistencia al tipo de daño asociado a su ancestría y obtiene la habilidad de aliento correspondiente"},{"Combate con dos armas":"Si lucha con dos armas, suma el modificador por competencia al ataque realizado con las dos armas"}],"conjuros":[],"esConjurador":false,"acciones":[{"esAtaque":false,"nombre":"Ataque con dos armas","descripcion":"Siempre que Hideo ataque cuerpo a cuerpo, usará sus dos espadas cortas para atacar"},{"esAtaque":true,"nombre":"Espada corta","tipoAtaque":"cuerpo a cuerpo","modificadorAtaque":"5","alcance":"5","objetivos":"1","numeroDados":"1","tipoDado":"6","modificadorDanno":"3","tipoDanno":"perforante","adicional":""},{"esAtaque":true,"nombre":"Daga","tipoAtaque":"a distancia","modificadorAtaque":"5","alcance":"20/60","objetivos":"1","numeroDados":"1","tipoDado":"4","modificadorDanno":"3","tipoDanno":"perforante","adicional":""},{"esAtaque":false,"nombre":"Aliento eléctrico","descripcion":"Hideo lanza un aliento de electricidad en una línea de 30ft. Aquellos que sean golpeados por el aliento sufren 2d6 de daño eléctrico reducido por una TS Destreza CD 10"}],"accionesAdicionales":[],"reacciones":[]}
+{
+    "nombre": "Hideo",
+    "tipoCriatura": "Humanoide (Dracónido azul)",
+    "tamanno": "mediano",
+    "alineamiento": "neutral verdadero",
+    "claseArmadura": 14,
+    "tipoArmadura": "armadura de cuero",
+    "puntosGolpe": 75,
+    "dadosGolpe": "17d8",
+    "velocidad": "30",
+    "velocidadNado": "",
+    "velocidadVuelo": "",
+    "competencia": 2,
+    "desafio": "2",
+    "fuerza": 10,
+    "destreza": 16,
+    "constitucion": 10,
+    "inteligencia": 10,
+    "sabiduria": 14,
+    "carisma": 16,
+    "iniciativa": 3,
+    "tiradaSalvacion": [
+        "destreza",
+        "fuerza"
+    ],
+    "habilidades": [
+        "sigilo",
+        "engaño",
+        "percepción"
+    ],
+    "sentidos": [
+        "Percepción pasiva (10)"
+    ],
+    "idiomas": [
+        "Común",
+        "Dracónico"
+    ],
+    "inmunidadesEstado": [],
+    "vulnerabilidadesDanno": [],
+    "inmunidadesDanno": [],
+    "resistenciasDanno": [
+        "Eléctrico"
+    ],
+    "rasgos": [
+        {
+            "Ancestría dracónica": "El dracódido obtiene resistencia al tipo de daño asociado a su ancestría y obtiene la habilidad de aliento correspondiente"
+        },
+        {
+            "Combate con dos armas": "Si lucha con dos armas, suma el modificador por competencia al ataque realizado con las dos armas"
+        }
+    ],
+    "conjuros": [],
+    "esConjurador": false,
+    "acciones": [
+        {
+            "esAtaque": false,
+            "nombre": "Ataque con dos armas",
+            "descripcion": "Siempre que Hideo ataque cuerpo a cuerpo, usará sus dos espadas cortas para atacar"
+        },
+        {
+            "esAtaque": true,
+            "nombre": "Espada corta",
+            "tipoAtaque": "cuerpo a cuerpo",
+            "modificadorAtaque": "5",
+            "alcance": "5",
+            "objetivos": "1",
+            "numeroDados": "1",
+            "tipoDado": "6",
+            "modificadorDanno": "3",
+            "tipoDanno": "perforante",
+            "adicional": ""
+        },
+        {
+            "esAtaque": true,
+            "nombre": "Daga",
+            "tipoAtaque": "a distancia",
+            "modificadorAtaque": "5",
+            "alcance": "20/60",
+            "objetivos": "1",
+            "numeroDados": "1",
+            "tipoDado": "4",
+            "modificadorDanno": "3",
+            "tipoDanno": "perforante",
+            "adicional": ""
+        },
+        {
+            "esAtaque": false,
+            "nombre": "Aliento eléctrico",
+            "descripcion": "Hideo lanza un aliento de electricidad en una línea de 30ft. Aquellos que sean golpeados por el aliento sufren 2d6 de daño eléctrico reducido por una TS Destreza CD 10"
+        }
+    ],
+    "accionesAdicionales": [],
+    "reacciones": []
+}

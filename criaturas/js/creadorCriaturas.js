@@ -73,19 +73,22 @@ function init(){
         addDesplegable(HABILIDADES.nombreLista, HABILIDADES.opciones);
 
     document.getElementById("add-sentido").onclick = () => 
-        addTextbox("sentidos", "sentido");
+        addTextbox("sentidos");
 
     document.getElementById("add-idioma").onclick = () => 
-        addTextbox("idiomas", "idioma");
+        addTextbox("idiomas");
 
     document.getElementById("add-inmunidad-estado").onclick = () => 
-        addTextbox("inmunidadesEstado", "inmunidadEstado");
+        addTextbox("inmunidadesEstado");
+
+    document.getElementById("add-vulnerabilidad-danno").onclick = () => 
+        addTextbox("vulnerabilidadesDanno");
 
     document.getElementById("add-inmunidad-danno").onclick = () => 
-        addTextbox("inmunidadesDanno", "inmunidadDanno");
+        addTextbox("inmunidadesDanno");
 
     document.getElementById("add-resistencia-danno").onclick = () => 
-        addTextbox("resistenciasDanno", "resistenciaDanno");
+        addTextbox("resistenciasDanno");
 
     document.getElementById("add-rasgo").onclick = () => 
         openModal(VIEW_DIR, MODAL_RASGOS, MODAL_ID, () => initModalRasgos());

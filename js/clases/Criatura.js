@@ -29,6 +29,7 @@ class Criatura {
             this.sentidos = objeto.sentidos;
             this.idiomas = objeto.idiomas;
             this.inmunidadesEstado = objeto.inmunidadesEstado;
+            this.vulnerabilidadesDanno = objeto.vulnerabilidadesDanno;
             this.inmunidadesDanno = objeto.inmunidadesDanno;
             this.resistenciasDanno = objeto.resistenciasDanno;
             this.rasgos = objeto.rasgos;
@@ -101,6 +102,15 @@ class Criatura {
                 this.inmunidadesEstado.push(aux);
                 i++;
                 aux = objeto[`inmunidadesEstado[${i}]`];
+            }
+
+            this.vulnerabilidadesDanno = [];
+            i = 0;
+            aux = objeto[`vulnerabilidadesDanno[${i}]`];
+            while (aux != undefined) {
+                this.vulnerabilidadesDanno.push(aux);
+                i++;
+                aux = objeto[`vulnerabilidadesDanno[${i}]`];
             }
 
             this.inmunidadesDanno = [];
@@ -328,6 +338,10 @@ class Criatura {
         if (this.idiomas.length > 0) {
             markdown +=
                 `            <b>Idiomas:</b> ${this.idiomas.join(", ")}<br/>` + "\n";
+        }
+        if (this.vulnerabilidadesDanno.length > 0) {
+            markdown +=
+                `            <b>Vulnerabilidades al daño:</b> ${this.vulnerabilidadesDanno.join(", ")}<br/>` + "\n";
         }
         if (this.inmunidadesDanno.length > 0) {
             markdown +=
