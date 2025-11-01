@@ -3,6 +3,10 @@
         {
             "nombre": "Finca Strangestar",
             "hoja": "01_FincaStrangestar"
+        },
+        {
+            "nombre": "Ruinas subterráneas",
+            "hoja": "02_RuinasSubterraneas"
         }
     ]
 }
