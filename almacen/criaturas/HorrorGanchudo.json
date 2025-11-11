@@ -1,0 +1,70 @@
+{
+    "nombre": "Horror ganchudo",
+    "tipoCriatura": "Monstruosidad",
+    "tamanno": "grande",
+    "alineamiento": "neutral",
+    "claseArmadura": 15,
+    "tipoArmadura": "armadura natural",
+    "puntosGolpe": 75,
+    "dadosGolpe": "10d10+20",
+    "velocidad": "escalada 30ft, 30",
+    "velocidadNado": "",
+    "velocidadVuelo": "",
+    "competencia": 2,
+    "desafio": "3",
+    "fuerza": 18,
+    "destreza": 10,
+    "constitucion": 15,
+    "inteligencia": 6,
+    "sabiduria": 12,
+    "carisma": 7,
+    "iniciativa": 0,
+    "tiradaSalvacion": [],
+    "habilidades": [
+        "percepción"
+    ],
+    "sentidos": [
+        "Percepción pasiva (10)",
+        "Visión oscura (120ft)",
+        "Vision ciega (60ft)"
+    ],
+    "idiomas": [
+        "Horror ganchudo"
+    ],
+    "inmunidadesEstado": [],
+    "vulnerabilidadesDanno": [],
+    "inmunidadesDanno": [],
+    "resistenciasDanno": [],
+    "rasgos": [
+        {
+            "Ecolocalización": "El horror ganchudo no puede usar su vista ciega mientras esté ensordecido"
+        },
+        {
+            "Oído agudizado": " El grimórlock tiene ventaja en las pruebas de Sabiduría (Percepción) que se basen en el oído"
+        }
+    ],
+    "conjuros": [],
+    "esConjurador": false,
+    "acciones": [
+        {
+            "esAtaque": false,
+            "nombre": "Multiataque",
+            "descripcion": "El horror ganchudo ataca dos veces"
+        },
+        {
+            "esAtaque": true,
+            "nombre": "Gancho",
+            "tipoAtaque": "cuerpo a cuerpo",
+            "modificadorAtaque": "6",
+            "alcance": "10",
+            "objetivos": "1",
+            "numeroDados": "2",
+            "tipoDado": "6",
+            "modificadorDanno": "4",
+            "tipoDanno": "perforante",
+            "adicional": ""
+        }
+    ],
+    "accionesAdicionales": [],
+    "reacciones": []
+}

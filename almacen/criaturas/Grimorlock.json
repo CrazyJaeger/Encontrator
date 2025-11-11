@@ -1,0 +1,71 @@
+{
+    "nombre": "Grimórlock",
+    "tipoCriatura": "Humanoide (grimórlock)",
+    "tamanno": "mediano",
+    "alineamiento": "neutral",
+    "claseArmadura": 11,
+    "tipoArmadura": "armadura natural",
+    "puntosGolpe": 11,
+    "dadosGolpe": "2d8+2",
+    "velocidad": "30",
+    "velocidadNado": "",
+    "velocidadVuelo": "",
+    "competencia": 2,
+    "desafio": "1/4",
+    "fuerza": 16,
+    "destreza": 12,
+    "constitucion": 12,
+    "inteligencia": 9,
+    "sabiduria": 8,
+    "carisma": 6,
+    "iniciativa": 1,
+    "tiradaSalvacion": [],
+    "habilidades": [
+        "atletismo",
+        "percepción",
+        "sigilo"
+    ],
+    "sentidos": [
+        "Percepción pasiva (13)",
+        "Vista ciega 30 pies o 10 pies mientras está ensordecido (ciego más allá de ese radio)"
+    ],
+    "idiomas": [
+        "Infracomún"
+    ],
+    "inmunidadesEstado": [
+        "Cegado"
+    ],
+    "vulnerabilidadesDanno": [],
+    "inmunidadesDanno": [],
+    "resistenciasDanno": [],
+    "rasgos": [
+        {
+            "Sentidos ciegos": "El grimórlock no puede usar su vista ciega mientras esté ensordecido y es incapaz de oler"
+        },
+        {
+            "Olfato y oído agudizados": "El grimórlock tiene ventaja en las pruebas de Sabiduría (Percepción) que se basen en el olfato o en el oído"
+        },
+        {
+            "Camuflaje en piedra": "El grimórlock tiene ventaja en las pruebas de Destreza (Sigilo) que haga para esconderse en terreno rocoso"
+        }
+    ],
+    "conjuros": [],
+    "esConjurador": false,
+    "acciones": [
+        {
+            "esAtaque": true,
+            "nombre": "Clava de hueso punzante",
+            "tipoAtaque": "cuerpo a cuerpo",
+            "modificadorAtaque": "5",
+            "alcance": "5",
+            "objetivos": "1",
+            "numeroDados": "1",
+            "tipoDado": "4",
+            "modificadorDanno": "3",
+            "tipoDanno": "contundente",
+            "adicional": "Al impactar, 2 (1d4) puntos de daño perforante"
+        }
+    ],
+    "accionesAdicionales": [],
+    "reacciones": []
+}
