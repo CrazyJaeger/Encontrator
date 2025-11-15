@@ -275,9 +275,8 @@ function recalcularPercepcionPasiva(){
         ? +document.getElementById("competencia").value : 0; 
     const percepcionPasiva = 10 + modSabiduria + competencia;
 
-    const percepcionPasivaElement = document.getElementById("sentidos_0__Text")
-    percepcionPasivaElement.innerHTML = `Percepción pasiva (${percepcionPasiva})`;
-    percepcionPasivaElement.value = `Percepción pasiva (${percepcionPasiva})`;
+    document.getElementById("sentidos_0__Text").innerHTML = `Percepción pasiva (${percepcionPasiva})`;
+    document.getElementById("sentidos_0").value = `Percepción pasiva (${percepcionPasiva})`;
 }
 
 /**
