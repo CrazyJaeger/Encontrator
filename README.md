@@ -20,7 +20,7 @@ Por último, para realizar la programación del aplicativo, se utiliza el IDE **
 
 ## Notas de versión
 
-Pueden revisarse las notas de versión, incluyendo los principales desarrollos realizados, consultando el documento [Changelog](Changelog.md).
+Pueden revisarse las notas de versión, incluyendo los principales desarrollos realizados, consultando el documento [Changelog](./changelog.md).
 
 ## Casos de uso principales
 

@@ -280,7 +280,7 @@ class Criatura {
             `            <b>Armadura de clase:</b> ${this.claseArmadura} (${this.tipoArmadura})<br/>` + "\n" +
             `            <b>Puntos de golpe:</b> ${this.puntosGolpe} (${this.dadosGolpe})<br/>` + "\n";
 
-        const velocidadTexto = `${this.velocidad}ft`;
+        let velocidadTexto = `${this.velocidad}ft`;
         if (this.velocidadNado.length > 0) {
             velocidadTexto += `, nado ${this.velocidadNado}ft`;
         }
