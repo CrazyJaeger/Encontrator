@@ -1,0 +1,76 @@
+{
+   "aliados" : [
+        {
+            "nombre": "Aetherea",            
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Érina",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Kurdran",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Mephis",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Nereida",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Odolwa",
+            "hoja": null,
+            "iniciativa": 0
+        }
+    ],
+    "enemigos" : [
+        {
+            "nombre":"Grimórlock 1",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Grimórlock 2",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Grimórlock 3",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Grimórlock 4",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Grimórlock 5",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Grimórlock 6",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Grimórlock 7",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        },
+        {
+            "nombre":"Grimórlock 8",
+            "hoja": "Grimorlock",
+            "iniciativa": 1
+        }
+    ]
+}

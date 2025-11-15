@@ -7,6 +7,18 @@
         {
             "nombre": "Ruinas subterráneas",
             "hoja": "02_RuinasSubterraneas"
+        },
+        {
+            "nombre": "Encuentro con estriges",
+            "hoja": "03_01_Estriges"
+        },
+        {
+            "nombre": "Encuentro con grimórlocks",
+            "hoja": "03_02_Grimorlocks"
+        },
+        {
+            "nombre": "Encuentro con mantoscuros",
+            "hoja": "03_03_Mantoscuros"
         }
     ]
 }

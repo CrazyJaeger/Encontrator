@@ -1,0 +1,76 @@
+{
+   "aliados" : [
+        {
+            "nombre": "Aetherea",            
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Érina",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Kurdran",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Mephis",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Nereida",
+            "hoja": null,
+            "iniciativa": 0
+        },
+        {
+            "nombre": "Odolwa",
+            "hoja": null,
+            "iniciativa": 0
+        }
+    ],
+    "enemigos" : [
+        {
+            "nombre":"Estrige 1",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Estrige 2",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Estrige 3",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Estrige 4",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Estrige 5",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Estrige 6",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Estrige 7",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        },
+        {
+            "nombre":"Estrige 8",
+            "hoja": "Estrige",
+            "iniciativa": 3
+        }
+    ]
+}
